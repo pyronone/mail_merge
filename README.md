@@ -20,3 +20,5 @@ manual steps kept to a minimum. This is particularly useful when changes
 to templates and/or data are required, and when there are different
 groups requiring different templates. More features will be added over
 time.
+
+[Documentation](https://pyronone.github.io/mail_merge/)
