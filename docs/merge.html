@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="description" content="…">
 
-<title>mail_merge - 01_merge</title>
+<title>01_merge – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,17 +101,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="mail_merge - 01_merge">
+<meta property="og:title" content="01_merge – mail_merge">
 <meta property="og:description" content="…">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="mail_merge - 01_merge">
+<meta name="twitter:title" content="01_merge – mail_merge">
 <meta name="twitter:description" content="…">
 <meta name="twitter:card" content="summary">
 </head>
@@ -127,18 +123,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">mail_merge</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools">
+        <div class="quarto-navbar-tools tools-end">
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./merge.html">01_merge</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -167,6 +163,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">01_merge</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02_example</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -177,16 +179,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#merge" id="toc-merge" class="nav-link active" data-scroll-target="#merge">00 merge</a>
+  <li><a href="#sample-cfg" id="toc-sample-cfg" class="nav-link active" data-scroll-target="#sample-cfg">00 sample cfg</a>
+  <ul class="collapse">
+  <li><a href="#create_sample_cfg" id="toc-create_sample_cfg" class="nav-link" data-scroll-target="#create_sample_cfg">create_sample_cfg</a></li>
+  </ul></li>
+  <li><a href="#merge" id="toc-merge" class="nav-link" data-scroll-target="#merge">01 merge</a>
   <ul class="collapse">
   <li><a href="#merge-1" id="toc-merge-1" class="nav-link" data-scroll-target="#merge-1">merge</a></li>
-  </ul></li>
-  <li><a href="#example-in-use" id="toc-example-in-use" class="nav-link" data-scroll-target="#example-in-use">01 example / in use</a>
-  <ul class="collapse">
-  <li><a href="#loadclean" id="toc-loadclean" class="nav-link" data-scroll-target="#loadclean">load/clean</a></li>
-  <li><a href="#note-on-tables" id="toc-note-on-tables" class="nav-link" data-scroll-target="#note-on-tables">note on tables</a></li>
-  <li><a href="#test-2-tables" id="toc-test-2-tables" class="nav-link" data-scroll-target="#test-2-tables">test 2 tables</a></li>
-  <li><a href="#run-merge" id="toc-run-merge" class="nav-link" data-scroll-target="#run-merge">run merge</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -219,10 +218,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
-<section id="merge" class="level1">
-<h1>00 merge</h1>
+<section id="sample-cfg" class="level1">
+<h1>00 sample cfg</h1>
 <hr>
-<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L180" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L27" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="create_sample_cfg" class="level3">
+<h3 class="anchored" data-anchor-id="create_sample_cfg">create_sample_cfg</h3>
+<blockquote class="blockquote">
+<pre><code> create_sample_cfg (_fn:str='cfg.yml')</code></pre>
+</blockquote>
+<p>create sample cfg file in cwd</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_fn</td>
+<td>str</td>
+<td>cfg.yml</td>
+<td>str</td>
+</tr>
+<tr class="even">
+<td><strong>Returns</strong></td>
+<td><strong>None</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="cell-4" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> REFRESH:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    test_fp <span class="op">=</span> fp(<span class="st">"../tests3/cfg.yml"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    os.remove(test_fp)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    shutil.copy(<span class="st">"../tests3/bak/cfg.yml"</span>, <span class="st">"../tests3/cfg.yml"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    test_dat <span class="op">=</span> _get_clean_cfg_dat(test_fp)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> (</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        [test_dat[<span class="st">"data"</span>]]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> test_dat[<span class="st">"groups"</span>][<span class="dv">0</span>][<span class="st">"group1"</span>]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> test_dat[<span class="st">"groups"</span>][<span class="dv">1</span>][<span class="st">"group2"</span>]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    ):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> os.path.exists(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="merge" class="level1">
+<h1>01 merge</h1>
+<hr>
+<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L256" target="_blank" style="float:right; font-size:smaller">source</a></p>
 <section id="merge-1" class="level3">
 <h3 class="anchored" data-anchor-id="merge-1">merge</h3>
 <blockquote class="blockquote">
@@ -230,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         multi_line_cols:list=['str_mailing_details'], _tbls:list=None,
         _test:bool=False, _zip:bool=False)</code></pre>
 </blockquote>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 25%">
@@ -296,475 +348,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-</section>
-</section>
-<section id="example-in-use" class="level1">
-<h1>01 example / in use</h1>
-<section id="loadclean" class="level2">
-<h2 class="anchored" data-anchor-id="loadclean">load/clean</h2>
-<div id="cell-6" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests2/fake_dat.parquet"</span>))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">fname</th>
-<th data-quarto-table-cell-role="th">lname</th>
-<th data-quarto-table-cell-role="th">dob</th>
-<th data-quarto-table-cell-role="th">dob_verified</th>
-<th data-quarto-table-cell-role="th">email</th>
-<th data-quarto-table-cell-role="th">phone</th>
-<th data-quarto-table-cell-role="th">street</th>
-<th data-quarto-table-cell-role="th">city</th>
-<th data-quarto-table-cell-role="th">prov</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__type_3</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__type_4</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__amt_1</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__amt_2</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__amt_3</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__amt_4</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__details_1</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__details_2</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__details_3</th>
-<th data-quarto-table-cell-role="th">__tbl_rows__details_4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">78</td>
-<td>6834930</td>
-<td>William</td>
-<td>Vasquez</td>
-<td>1914-11-20</td>
-<td>True</td>
-<td>mperez@example.org</td>
-<td>911 565 0371</td>
-<td>33854 Laura Way</td>
-<td>Michaelhaven</td>
-<td>Newfoundland and Labrador</td>
-<td>...</td>
-<td>None</td>
-<td>None</td>
-<td>$4,875.28</td>
-<td>$22,942.55</td>
-<td>None</td>
-<td>None</td>
-<td>Directly deposited to your bank account less a...</td>
-<td>RBC\n6801 51 ST\nCOLD LAKE, AB T9M 1Z9\n</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">105</td>
-<td>5135108</td>
-<td>Elizabeth</td>
-<td>Wilson</td>
-<td>1995-11-11</td>
-<td>True</td>
-<td>davilapamela@example.org</td>
-<td>510.745.2155</td>
-<td>6324 Potter Inlet Suite 671</td>
-<td>Cameronhaven</td>
-<td>British Columbia</td>
-<td>...</td>
-<td>None</td>
-<td>None</td>
-<td>$1,126.23</td>
-<td>$28,237.12</td>
-<td>None</td>
-<td>None</td>
-<td>Cheque mailed to your address less applicable ...</td>
-<td>CIBC\n134 MACKENZIE RD.\nP.O. BOX 1250\nINUVIK...</td>
-<td>None</td>
-<td>None</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">55</td>
-<td>9300534</td>
-<td>Cathy</td>
-<td>Castillo</td>
-<td>1996-02-06</td>
-<td>True</td>
-<td>bruceblair@example.net</td>
-<td>388-635-2658 x177</td>
-<td>7157 Carrillo Roads Suite 786</td>
-<td>Lake Amber</td>
-<td>Alberta</td>
-<td>...</td>
-<td>None</td>
-<td>None</td>
-<td>$13,361.36</td>
-<td>$81,729.00</td>
-<td>None</td>
-<td>None</td>
-<td>Directly deposited to your bank account less a...</td>
-<td>RBC ROYAL BANK\n78 ELIZABETH DR\nGANDER, NL A...</td>
-<td>None</td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-
-<p>3 rows × 25 columns</p>
-</div>
-</div>
-</div>
-</div>
-<div id="cell-7" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"dt_send"</span>] <span class="op">=</span> <span class="st">"May 31, 2024"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"str_full_name"</span>] <span class="op">=</span> df[<span class="st">"fname"</span>].<span class="bu">str</span>.strip() <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"lname"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"country"</span>] <span class="op">=</span> <span class="st">"Canada"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"prov"</span>] <span class="op">=</span> df[<span class="st">"prov"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: mm.province_abbrev(x))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"str_full_name"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"street"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"n/a"</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"n/a"</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"city"</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"pc"</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"prov"</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"country"</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> mm.add_mailing_details_col(df, address_dict, col_name<span class="op">=</span><span class="st">"str_mailing_details"</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> df[<span class="st">"str_mailing_details"</span>].tolist()[:<span class="dv">3</span>]:</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(_, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>HENRY ALVARADO
-91971 WILLIAMS SHOALS
-PORT RICHARD, SK  M6J 1P4
-CANADA 
-
-ROBERT HENRY
-54198 LAMBERT ISLE
-STEVENSSTAD, NU  M2M 3L2
-CANADA 
-
-JENNIFER ROSS
-10535 BARTLETT HILLS
-MCKNIGHTCHESTER, MB  T8K 6J5
-CANADA 
-</code></pre>
-</div>
-</div>
-<div id="cell-8" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"dt_dob"</span>] <span class="op">=</span> df[<span class="st">"dob"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: mm.date_to_string(x))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"bool_dob_verified"</span>] <span class="op">=</span> df[<span class="st">"dob_verified"</span>]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"bool_some_bool"</span>] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"bool_some_bool"</span>] <span class="op">=</span> df[<span class="st">"bool_some_bool"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: random.randint(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"bool_some_bool"</span>] <span class="op">=</span> df[<span class="st">"bool_some_bool"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="va">True</span> <span class="cf">if</span> x <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="va">False</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"str_comment"</span>] <span class="op">=</span> df[<span class="st">"comment"</span>]</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> df[<span class="st">"bool_some_bool"</span>] <span class="op">==</span> <span class="va">True</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="op">~</span>m, <span class="st">"_group"</span>] <span class="op">=</span> <span class="st">"group1"</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>df.loc[m, <span class="st">"_group"</span>] <span class="op">=</span> <span class="st">"group2"</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> [</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>,</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"fname"</span>,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"lname"</span>,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dob"</span>,</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dob_verified"</span>,</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"email"</span>,</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"phone"</span>,</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street"</span>,</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>,</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>,</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>,</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"comment"</span>,</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"amt_total"</span>,</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__type_1"</span>,</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__type_2"</span>,</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__type_3"</span>,</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__type_4"</span>,</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__amt_1"</span>,</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__amt_2"</span>,</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__amt_3"</span>,</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__amt_4"</span>,</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__details_1"</span>,</span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__details_2"</span>,</span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__details_3"</span>,</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"__tbl1__details_4"</span>,</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dt_send"</span>,</span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"str_full_name"</span>,</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>,</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"str_mailing_details"</span>,</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"dt_dob"</span>,</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bool_dob_verified"</span>,</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bool_some_bool"</span>,</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"str_comment"</span>,</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">"_group"</span>,</span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"str_comment"</span>] <span class="op">=</span> df[<span class="st">"str_comment"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="op">+</span> <span class="st">"</span><span class="ch">\n\n</span><span class="st">"</span>)</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>df.to_parquet(<span class="st">"../tests2/_clean_dat.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="note-on-tables" class="level2">
-<h2 class="anchored" data-anchor-id="note-on-tables">note on tables</h2>
-<p>For tables, the original data would typically look something like this:</p>
-<div id="cell-11" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: [<span class="dv">99</span>, <span class="dv">99</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>, <span class="dv">100</span>],</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"type"</span>: [<span class="st">"A"</span>, <span class="st">"C"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>],</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"amt"</span>: [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>],</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">type</th>
-<th data-quarto-table-cell-role="th">amt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>99</td>
-<td>A</td>
-<td>10</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>99</td>
-<td>C</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>100</td>
-<td>A</td>
-<td>30</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>100</td>
-<td>B</td>
-<td>40</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>100</td>
-<td>A</td>
-<td>50</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>100</td>
-<td>B</td>
-<td>60</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</div>
-<p>To get all table rows into one row per id:</p>
-<div id="cell-13" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"num"</span>] <span class="op">=</span> df.groupby(<span class="st">"id"</span>).cumcount() <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> df.pivot(index<span class="op">=</span><span class="st">"id"</span>, columns<span class="op">=</span><span class="st">"num"</span>, values<span class="op">=</span>[<span class="st">"type"</span>, <span class="st">"amt"</span>])</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df_pivot.columns <span class="op">=</span> [<span class="ss">f"__tbl1__</span><span class="sc">{</span>col[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>col[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> col <span class="kw">in</span> df_pivot.columns]</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># where tbl1 corresponds to name of table in template</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_pivot <span class="op">=</span> df_pivot.reset_index().copy()</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>df_pivot  <span class="co"># merge this back into rest of data</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_1</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_2</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_3</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_4</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_1</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_2</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_3</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>99</td>
-<td>A</td>
-<td>C</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>10</td>
-<td>20</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>100</td>
-<td>A</td>
-<td>B</td>
-<td>A</td>
-<td>B</td>
-<td>30</td>
-<td>40</td>
-<td>50</td>
-<td>60</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="test-2-tables" class="level2">
-<h2 class="anchored" data-anchor-id="test-2-tables">test 2 tables</h2>
-<div id="cell-15" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _create_random_benes(<span class="bu">id</span>: <span class="bu">str</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> faker <span class="im">import</span> Faker</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    fake <span class="op">=</span> Faker()</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>[<span class="st">"id"</span>, <span class="st">"name"</span>, <span class="st">"pct"</span>])</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    num_benes <span class="op">=</span> random.randint(<span class="dv">1</span>, <span class="dv">4</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_benes):</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        df.loc[<span class="bu">len</span>(df)] <span class="op">=</span> [<span class="bu">id</span>, fake.name(), <span class="ss">f"</span><span class="sc">{</span><span class="bu">round</span>(<span class="dv">100</span><span class="op">/</span>num_benes,<span class="dv">2</span>)<span class="sc">}</span><span class="ss">%"</span>]</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> REFRESH:</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_parquet(<span class="st">"../tests2/clean_dat.parquet"</span>)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    dfs <span class="op">=</span> []</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _id <span class="kw">in</span> df[<span class="st">"id"</span>].tolist():</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        dfs.append(_create_random_benes(_id))</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    benes <span class="op">=</span> pd.concat(dfs)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    benes[<span class="st">"num"</span>] <span class="op">=</span> benes.groupby(<span class="st">"id"</span>).cumcount() <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    benes_pivot <span class="op">=</span> benes.pivot(index<span class="op">=</span><span class="st">"id"</span>, columns<span class="op">=</span><span class="st">"num"</span>, values<span class="op">=</span>[<span class="st">"name"</span>, <span class="st">"pct"</span>])</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    benes_pivot.columns <span class="op">=</span> [<span class="ss">f"__tbl2__</span><span class="sc">{</span>col[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>col[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> col <span class="kw">in</span> benes_pivot.columns]</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    benes_pivot <span class="op">=</span> benes_pivot.reset_index().copy()</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    tm <span class="op">=</span> pd.merge(df, benes_pivot, <span class="st">"inner"</span>, <span class="st">"id"</span>)</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(tm) <span class="op">==</span> <span class="bu">len</span>(df)</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(tm) <span class="op">==</span> <span class="bu">len</span>(benes_pivot)</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    tm.to_parquet(<span class="st">"../tests2/clean_dat2.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="run-merge" class="level2">
-<h2 class="anchored" data-anchor-id="run-merge">run merge</h2>
-<p>Config is in yaml format:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="01_merge_files/figure-html/cell-17-1-image-2.png" class="img-fluid figure-img"></p>
-<figcaption>screenshot.png</figcaption>
-</figure>
-</div>
-<p>The config file is used to specify the data source (currently, only parquet is supported to ensure consistent/persistent data types), groups, and what template(s) each group should use.</p>
-<div id="cell-18" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>cfg_path <span class="op">=</span> <span class="st">"../tests2/sample_cfg.yml"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>cfg <span class="op">=</span> yaml_helper(cfg_path)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>pprint(cfg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'data': 'C:\\Users\\ronal\\Desktop\\mail_merge\\tests2\\clean_dat2.parquet',
- 'groups': [{'group1': ['C:\\Users\\ronal\\Desktop\\mail_merge\\tests2\\tpls\\sample_tpl.docx',
-                        'C:\\Users\\ronal\\Desktop\\mail_merge\\tests2\\tpls\\sample_tpl2.docx']},
-            {'group2': ['C:\\Users\\ronal\\Desktop\\mail_merge\\tests2\\tpls\\sample_tpl.docx']}]}</code></pre>
-</div>
-</div>
-<div id="cell-19" class="cell">
-<details open="" class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> REFRESH:</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    merge(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        cfg_path<span class="op">=</span><span class="st">"../tests2/sample_cfg.yml"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        id_col<span class="op">=</span><span class="st">"id"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        group_col<span class="op">=</span><span class="st">"_group"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        _tbls<span class="op">=</span>[<span class="st">"tbl1"</span>, <span class="st">"tbl2"</span>],</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        _test<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        _zip<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"195a073323864cb4a0719cf9021f7823","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"5bea49d51b354cd9b786bff0a10df179","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-<div class="cell-output cell-output-display">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"c1e62f1392274fed806809c6e1fb0cfe","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-</div>
-<p>Sample result in <code>/tests2/res_2024...zip</code></p>
-<p>Sample templates used in <code>/tests2/tpls/</code></p>
 
 
 </section>
 </section>
 
 </main> <!-- /main -->
-<script type="application/vnd.jupyter.widget-state+json">
-{"state":{},"version_major":2,"version_minor":0}
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -800,18 +389,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -843,7 +421,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/pyronone\.github\.io\/mail_merge");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -878,7 +496,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
