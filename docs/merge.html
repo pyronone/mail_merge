@@ -163,12 +163,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">01_merge</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02_example</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -221,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sample-cfg" class="level1">
 <h1>00 sample cfg</h1>
 <hr>
-<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L27" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L26" target="_blank" style="float:right; font-size:smaller">source</a></p>
 <section id="create_sample_cfg" class="level3">
 <h3 class="anchored" data-anchor-id="create_sample_cfg">create_sample_cfg</h3>
 <blockquote class="blockquote">
@@ -252,36 +246,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-4" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> REFRESH:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    test_fp <span class="op">=</span> fp(<span class="st">"../tests3/cfg.yml"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    os.remove(test_fp)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    shutil.copy(<span class="st">"../tests3/bak/cfg.yml"</span>, <span class="st">"../tests3/cfg.yml"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    test_dat <span class="op">=</span> _get_clean_cfg_dat(test_fp)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> (</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        [test_dat[<span class="st">"data"</span>]]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> test_dat[<span class="st">"groups"</span>][<span class="dv">0</span>][<span class="st">"group1"</span>]</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">+</span> test_dat[<span class="st">"groups"</span>][<span class="dv">1</span>][<span class="st">"group2"</span>]</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    ):</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">assert</span> os.path.exists(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<p>The config file uses YAML format for easy editing. Here you specify the data / template filepaths, as well as which groups require which templates. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span><span class="kw">:</span><span class="at"> C:\Users\Ron\Downloads\CODE\mail_merge\tests2\clean_dat2.parquet</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span><span class="kw">:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">group1</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> C:\Users\Ron\Downloads\CODE\mail_merge\tests2\tpls\sample_tpl.docx</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> C:\Users\Ron\Downloads\CODE\mail_merge\tests2\tpls\sample_tpl2.docx</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">group2</span><span class="kw">:</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> C:\Users\Ron\Downloads\CODE\mail_merge\tests2\tpls\sample_tpl.docx</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This is particularly useful when you have many groups, each requiring different (combinations of) templates.</p>
 </section>
 </section>
 <section id="merge" class="level1">
 <h1>01 merge</h1>
 <hr>
-<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L256" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/merge.py#L255" target="_blank" style="float:right; font-size:smaller">source</a></p>
 <section id="merge-1" class="level3">
 <h3 class="anchored" data-anchor-id="merge-1">merge</h3>
 <blockquote class="blockquote">
 <pre><code> merge (cfg_path:str, id_col:str, group_col:str,
         multi_line_cols:list=['str_mailing_details'], _tbls:list=None,
-        _test:bool=False, _zip:bool=False)</code></pre>
+        _test:bool=False)</code></pre>
 </blockquote>
+<p>Run merge</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -302,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>cfg_path</td>
 <td>str</td>
 <td></td>
-<td>path to config yaml file - example in <code>tests2</code></td>
+<td>path to config yaml file</td>
 </tr>
 <tr class="even">
 <td>id_col</td>
@@ -335,12 +322,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>if True, only processes first 5 for quick checking/iteration</td>
 </tr>
 <tr class="odd">
-<td>_zip</td>
-<td>bool</td>
-<td>False</td>
-<td>add result dir to zip file</td>
-</tr>
-<tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>None</strong></td>
 <td></td>
@@ -348,6 +329,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<p>Using the example config above, the example result looks something like this:</p>
+<p><img src="01_merge_files/figure-html/cell-8-1-image.png" class="img-fluid"></p>
+<p><img src="01_merge_files/figure-html/cell-9-1-image.png" class="img-fluid"></p>
+<p><img src="01_merge_files/figure-html/cell-10-1-image.png" class="img-fluid"></p>
+<p><img src="01_merge_files/figure-html/cell-11-1-image.png" class="img-fluid"></p>
+<p>Actual sample files can be found here: <a href="https://github.com/pyronone/mail_merge/tree/main/tests2">https://github.com/pyronone/mail_merge/tree/main/tests2</a></p>
 
 
 </section>

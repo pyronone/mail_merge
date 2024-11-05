@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="utils">
+<meta name="description" content="core utils and functions for formatting data">
 
 <title>00_core – mail_merge</title>
 <style>
@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -101,14 +101,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="00_core – mail_merge">
-<meta property="og:description" content="utils">
+<meta property="og:description" content="core utils and functions for formatting data">
 <meta property="og:site_name" content="mail_merge">
 <meta name="twitter:title" content="00_core – mail_merge">
-<meta name="twitter:description" content="utils">
+<meta name="twitter:description" content="core utils and functions for formatting data">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -163,12 +166,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">01_merge</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02_example</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -215,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    utils
+    core utils and functions for formatting data
   </div>
 </div>
 
@@ -338,7 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 pad_zeroes_at_end:bool=True,
                 return_int_if_possible:bool=False, decimal_str:str='.')</code></pre>
 </blockquote>
-<div id="cell-7" class="cell">
+<p>Options for numerical formatting (options for any/all locale conventions / currency formatting).</p>
+<div id="cell-8" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -389,13 +387,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-9" class="cell">
+<div id="cell-10" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">123.445</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"123.45"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(comma<span class="op">=</span><span class="va">True</span>)) <span class="op">==</span> <span class="st">"9,123.45"</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">123.445</span>, <span class="dv">2</span>, FormatOptions(comma<span class="op">=</span><span class="va">False</span>)) <span class="op">==</span> <span class="st">"123.45"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">2123.445</span>, <span class="dv">2</span>, FormatOptions(comma<span class="op">=</span><span class="va">False</span>)) <span class="op">==</span> <span class="st">"2123.45"</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(<span class="fl">123.445</span>, <span class="dv">4</span>, FormatOptions(comma<span class="op">=</span><span class="va">False</span>, pad_zeroes_at_end<span class="op">=</span><span class="va">True</span>))</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"123.4450"</span></span>
@@ -411,34 +409,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(comma<span class="op">=</span><span class="va">False</span>)) <span class="op">==</span> <span class="st">"2343.0"</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343"</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>, comma<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343"</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">0.0</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"0.0"</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="st">"0"</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"0"</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="st">"str"</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"str"</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pd.isnull(fix_round_and_format(np.nan, <span class="dv">2</span>, FormatOptions()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>, comma<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343.0"</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(comma<span class="op">=</span><span class="va">False</span>)) <span class="op">==</span> <span class="st">"2343.0"</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343"</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>, comma<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343"</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    fix_round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="fl">0.0</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"0.0"</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="st">"0"</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"0"</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="st">"abc"</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"abc"</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round_and_format(<span class="st">"str"</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"str"</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> pd.isnull(fix_round_and_format(np.nan, <span class="dv">2</span>, FormatOptions()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-10" class="cell">
+<div id="cell-11" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -448,7 +449,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>123.44</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell">
+<div id="cell-12" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -458,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>'123.45'</code></pre>
 </div>
 </div>
-<div id="cell-12" class="cell">
+<div id="cell-13" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -468,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>'$123.45'</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell">
+<div id="cell-14" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -478,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>'123.45$'</code></pre>
 </div>
 </div>
-<div id="cell-14" class="cell">
+<div id="cell-15" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -488,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>'9 123.45$'</code></pre>
 </div>
 </div>
-<div id="cell-15" class="cell">
+<div id="cell-16" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
@@ -597,7 +598,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-19" class="cell">
+<div id="cell-20" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
@@ -637,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-21" class="cell">
+<div id="cell-22" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
@@ -694,7 +695,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-23" class="cell">
+<div id="cell-24" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
@@ -732,7 +733,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-25" class="cell">
+<div id="cell-26" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
@@ -744,7 +745,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="format-addresses" class="level1">
 <h1>03 format addresses</h1>
 <hr>
-<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/core.py#L523" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/core.py#L527" target="_blank" style="float:right; font-size:smaller">source</a></p>
 <section id="add_mailing_details_col" class="level3">
 <h3 class="anchored" data-anchor-id="add_mailing_details_col">add_mailing_details_col</h3>
 <blockquote class="blockquote">
@@ -752,7 +753,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                           address_dict:dict,
                           col_name:str='str_mailing_details')</code></pre>
 </blockquote>
-<p>main</p>
+<p>Adds column to dataframe w/ full mailing details in upper case: full name, street(s), city / province/state / postal code (handles all combinations in case of foreign addresses), country. If there’s a <code>c/o</code> line, moves it to 2nd line.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -795,84 +796,184 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div id="cell-28" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prep_data0() <span class="op">-&gt;</span> pd.DataFrame:</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""prep data for comparison - add dropped col `Address-3` back"""</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests/test_dat/bmark_20240205_1721.parquet"</span>))</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"str_greeting"</span>] <span class="op">=</span> df[<span class="st">"str_sal"</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"Last Name"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"str_full_name"</span>] <span class="op">=</span> (</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">"First Name"</span>].<span class="bu">str</span>.strip() <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"Last Name"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"str_full_name2"</span>] <span class="op">=</span> df[<span class="st">"str_sal"</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"str_full_name"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"Address-3"</span>] <span class="op">=</span> np.nan</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"str_full_name2"</span>,</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"Address-1"</span>,</span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"Address-2"</span>,</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"Address-3"</span>,</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"Address-4"</span>,</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"Postal Code"</span>,</span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"Province"</span>,</span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"Current Address.Country"</span>,</span>
-<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>compare_df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests/test_dat/dat.parquet"</span>))</span>
-<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> prep_data0()</span>
-<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> add_mailing_details_col(df, address_dict)</span>
-<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> df[<span class="st">"str_mailing_details"</span>].tolist() <span class="op">==</span> compare_df[<span class="st">"str_mailing_details"</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <div id="cell-29" class="cell">
-<details class="code-fold">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prep_data1() <span class="op">-&gt;</span> pd.DataFrame:</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""prep data for comparison - leave dropped col `Address-3` as is"""</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests/test_dat/bmark_20240205_1721.parquet"</span>))</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"str_greeting"</span>] <span class="op">=</span> df[<span class="st">"str_sal"</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"Last Name"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"str_full_name"</span>] <span class="op">=</span> (</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        df[<span class="st">"First Name"</span>].<span class="bu">str</span>.strip() <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"Last Name"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"str_full_name2"</span>] <span class="op">=</span> df[<span class="st">"str_sal"</span>] <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> df[<span class="st">"str_full_name"</span>].<span class="bu">str</span>.strip()</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="st">"Address-3"</span> <span class="kw">not</span> <span class="kw">in</span> df.columns.tolist()</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>compare_df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests/test_dat/dat.parquet"</span>))</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> prep_data1()</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> add_mailing_details_col(df, address_dict)</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> df[<span class="st">"str_mailing_details"</span>].tolist() <span class="op">==</span> compare_df[<span class="st">"str_mailing_details"</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"../tests/for_docs/fake_data.xlsx"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">fname</th>
+<th data-quarto-table-cell-role="th">lname</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">dob_verified</th>
+<th data-quarto-table-cell-role="th">email</th>
+<th data-quarto-table-cell-role="th">phone</th>
+<th data-quarto-table-cell-role="th">_full_name</th>
+<th data-quarto-table-cell-role="th">street1</th>
+<th data-quarto-table-cell-role="th">street2</th>
+<th data-quarto-table-cell-role="th">city</th>
+<th data-quarto-table-cell-role="th">province</th>
+<th data-quarto-table-cell-role="th">postal_code</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">comment</th>
+<th data-quarto-table-cell-role="th">amt</th>
+<th data-quarto-table-cell-role="th">rand_int</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5790492</td>
+<td>Henry</td>
+<td>Alvarado</td>
+<td>1940-01-10</td>
+<td>True</td>
+<td>mbrown@example.org</td>
+<td>(465) 529-2322</td>
+<td>Henry Alvarado</td>
+<td>91971 Williams Shoals</td>
+<td>c/o James Smith</td>
+<td>Port Richard</td>
+<td>SK</td>
+<td>M6J 1P4</td>
+<td>Canada</td>
+<td>Tenetur hic eaque praesentium.</td>
+<td>74068.20</td>
+<td>4582</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5266792</td>
+<td>Robert</td>
+<td>Henry</td>
+<td>1996-02-04</td>
+<td>True</td>
+<td>gonzalesmegan@example.com</td>
+<td>812-671-2491</td>
+<td>Robert Henry</td>
+<td>54198 Lambert Isle</td>
+<td>Unit 5</td>
+<td>Stevensstad</td>
+<td>NU</td>
+<td>M2M 3L2</td>
+<td>Canada</td>
+<td>Voluptatibus fugit nam repellendus nemo repell...</td>
+<td>324.62</td>
+<td>5486</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3735642</td>
+<td>Jennifer</td>
+<td>Ross</td>
+<td>2004-04-27</td>
+<td>True</td>
+<td>hernandezjill@example.org</td>
+<td>1-156-761-3895</td>
+<td>Jennifer Ross</td>
+<td>10535 Bartlett Hills</td>
+<td>NaN</td>
+<td>Mcknightchester</td>
+<td>MB</td>
+<td>T8K 6J5</td>
+<td>Canada</td>
+<td>Temporibus eaque quis dignissimos reiciendis d...</td>
+<td>9770.60</td>
+<td>9002</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<p>If there is no 2nd/3rd street column, put <code>n/a</code> (assuming n/a isn’t another column)</p>
+</div>
+</div>
+<div id="cell-30" class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example address_dict, where values are the column names in the data. Assumes a maximum of three columns for street.</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"_full_name"</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"street1"</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"street2"</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"n/a"</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"city"</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"province"</span>,</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"postal_code"</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"country"</span>,</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> add_mailing_details_col(df, address_dict, <span class="st">"str_mailing_details"</span>)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">"str_mailing_details"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">str_mailing_details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>HENRY ALVARADO\nC/O JAMES SMITH\n91971 WILLIAM...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>ROBERT HENRY\n54198 LAMBERT ISLE\nUNIT 5\nSTEV...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>JENNIFER ROSS\n10535 BARTLETT HILLS\nMCKNIGHTC...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <div id="cell-31" class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * DOC</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample address_dict, where values are the column names in the data. Assumes a maximum of three columns for street.</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"str_full_name2"</span>,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"Address-1"</span>,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"Address-2"</span>,</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"n/a"</span>,</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"Address-4"</span>,</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"Postal Code"</span>,</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"Province"</span>,</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"Current Address.Country"</span>,</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> prep_data1()  <span class="co"># load, clean, etc.</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> add_mailing_details_col(df, address_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> res <span class="kw">in</span> df[<span class="st">"str_mailing_details"</span>].tolist():</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(res, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>HENRY ALVARADO
+C/O JAMES SMITH
+91971 WILLIAMS SHOALS
+PORT RICHARD, SK  M6J 1P4
+CANADA 
+
+ROBERT HENRY
+54198 LAMBERT ISLE
+UNIT 5
+STEVENSSTAD, NU  M2M 3L2
+CANADA 
+
+JENNIFER ROSS
+10535 BARTLETT HILLS
+MCKNIGHTCHESTER, MB  T8K 6J5
+CANADA 
+</code></pre>
+</div>
 </div>
 <hr>
-<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/core.py#L552" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<p><a href="https://github.com/pyronone/mail_merge/blob/main/mail_merge/core.py#L556" target="_blank" style="float:right; font-size:smaller">source</a></p>
 </section>
 <section id="province_abbrev" class="level3">
 <h3 class="anchored" data-anchor-id="province_abbrev">province_abbrev</h3>
@@ -919,21 +1020,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-33" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid province name"</span>):</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"raise"</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid `error` arg"</span>):</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"test"</span>)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="kw">is</span> <span class="va">None</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="st">"FL"</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"Ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"newfoundland"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"NEWFOUNDLAND AND LABRADOR"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"yukon"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"YUKON TERRITORY"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"PEI"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"novascotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># * </span><span class="al">TEST</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid province name"</span>):</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"raise"</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="st">"FL"</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid `error` arg"</span>):</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    province_abbrev(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"test"</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"Ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"newfoundland"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"NEWFOUNDLAND AND LABRADOR"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"yukon"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"YUKON TERRITORY"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"PEI"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"Prince edward island"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"novascotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> province_abbrev(<span class="st">"nova scotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
