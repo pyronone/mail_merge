@@ -1,0 +1,16 @@
+data: 'C:\...\example\clean_dat2.parquet'
+id_col: 'id'
+group_col: '_group'
+multi_line_cols: 
+  - 'str_mailing_details'
+tables:
+  - 'tbl1'
+  - 'tbl2'
+groups: 
+- group1:
+  - 'C:\...\example\tpl\sample_tpl.docx'
+  - 'C:\...\example\tpl\sample_tpl_with_benes.docx'
+- group2:
+  - 'C:\...\example\tpl\sample_tpl.docx'
+- group3:
+  - 'C:\...\example\tpl\sample_tpl_more_payments.docx'

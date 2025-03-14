@@ -1,8 +1,0 @@
-data: 'C:\Users\ronal\Desktop\mail_merge\tests2\clean_dat2.parquet'
-groups:
-  - group1: 
-    - 'C:\Users\ronal\Desktop\mail_merge\tests2\tpls\sample_tpl.docx'
-    - 'C:\Users\ronal\Desktop\mail_merge\tests2\tpls\sample_tpl2.docx'
-  - group2: 
-    - 'C:\Users\ronal\Desktop\mail_merge\tests2\tpls\sample_tpl.docx'
-
