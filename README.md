@@ -1,8 +1,6 @@
 # Seamless Mass Mailings, Simplified
 
 
-<!-- ... -->
-
 At TELUS Health / LifeWorks, I have successfully executed dozens of mail
 merges, many of which had thousands of recipients, a wide variety of
 templates, tight deadlines, and constant changes to both templates and
