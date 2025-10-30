@@ -1,26 +1,33 @@
-# mail_merge
+# Seamless Mass Mailings, Simplified
 
 
 <!-- ... -->
 
-At TELUS Health / LifeWorks, I have successfully executed over a dozen
-mail merges, many of which had thousands of recipients, a wide variety
-of templates, tight deadlines, and constant changes to both templates
-and data.
+At TELUS Health / LifeWorks, I have successfully executed dozens of mail
+merges, many of which had thousands of recipients, a wide variety of
+templates, tight deadlines, and constant changes to both templates and
+data. With a natural inclination for process efficiency, I’ve created a
+Python package to streamline the process.
 
-With a natural inclination for process efficiency, I used Python scripts
-to streamline the process. For the sake of organization,
-maintainability, and documentation, I have bundled commonly used
-functions from those scripts into a single package.
+------------------------------------------------------------------------
 
-I have also tested, with great results, using
-[docxtpl](https://docxtpl.readthedocs.io/en/latest/) for the actual
-merge itself as the built-in MS Word function proved inconsistent and
-unreliable, especially for larger merges and complex templates.
+### Features & Benefits
 
-This package allows for effortless running and re-running of merges with
-manual steps kept to a minimum. This is particularly useful when there
-are frequent changes to the templates and/or data, and when there are
-many different groups requiring different combinations of templates.
-
-[Documentation](https://pyronone.github.io/mail_merge/)
+- **Reliable Mail Merges**: Eliminate common errors and inconsistencies
+  that come with manual mail merges.
+- **Effortless Re-runs**: Quickly re-run merges with updated data or
+  templates with minimal manual steps.
+- **Dynamic Template Management**: Easily handle frequent template
+  updates across multiple campaigns.
+- **Group-Specific Flexibility**: Automatically generate the right
+  combination of templates for different recipient groups.
+- **Time-Saving Automation**: Reduce repetitive manual steps and free up
+  time for more important work.
+- **Scalable for Complexity**: Designed to handle high volumes and
+  complex mailing structures with ease.
+- **Built-in Formatting Tools**: Convert numbers into properly formatted
+  currencies, and standardize dates in both English and French.
+- **Address Processing**: Clean and structure address fields
+  automatically for mailing accuracy.
+- **Consistent Output**: Ensure all merged documents use the same
+  professional, localized formatting—no manual tweaks required.

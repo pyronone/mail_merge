@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="For variables where you want parts of the text to have different styles/sizes/etc.">
 
-<title>Merge – mail_merge</title>
+<title>RichText – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -103,9 +104,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Merge – mail_merge">
+<meta property="og:title" content="RichText – mail_merge">
+<meta property="og:description" content="For variables where you want parts of the text to have different styles/sizes/etc.">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="Merge – mail_merge">
+<meta name="twitter:title" content="RichText – mail_merge">
+<meta name="twitter:description" content="For variables where you want parts of the text to have different styles/sizes/etc.">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -130,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./merge.html">Merge</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./richtext.html">RichText</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,13 +159,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./merge.html" class="sidebar-item-text sidebar-link active">
+  <a href="./merge.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Merge</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./richtext.html" class="sidebar-item-text sidebar-link">
+  <a href="./richtext.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RichText</span></a>
   </div>
 </li>
@@ -182,16 +185,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#config" id="toc-config" class="nav-link active" data-scroll-target="#config">Config</a>
-  <ul class="collapse">
-  <li><a href="#createsamplecfg" id="toc-createsamplecfg" class="nav-link" data-scroll-target="#createsamplecfg">createSampleCfg</a></li>
-  </ul></li>
-  <li><a href="#merge" id="toc-merge" class="nav-link" data-scroll-target="#merge">Merge</a>
-  <ul class="collapse">
-  <li><a href="#groupmergedata" id="toc-groupmergedata" class="nav-link" data-scroll-target="#groupmergedata">GroupMergeData</a></li>
-  <li><a href="#convertandcombinepdfs" id="toc-convertandcombinepdfs" class="nav-link" data-scroll-target="#convertandcombinepdfs">convertAndCombinePdfs</a></li>
-  <li><a href="#merge-1" id="toc-merge-1" class="nav-link" data-scroll-target="#merge-1">merge</a></li>
-  </ul></li>
+  <li><a href="#rtformatopts" id="toc-rtformatopts" class="nav-link active" data-scroll-target="#rtformatopts">RTFormatOpts</a></li>
+  <li><a href="#rt" id="toc-rt" class="nav-link" data-scroll-target="#rt">RT</a></li>
+  <li><a href="#rt.addtext" id="toc-rt.addtext" class="nav-link" data-scroll-target="#rt.addtext">RT.addText</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 </nav>
     </div>
@@ -200,9 +197,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Merge</h1>
+<h1 class="title">RichText</h1>
 </div>
 
+<div>
+  <div class="description">
+    For variables where you want parts of the text to have different styles/sizes/etc.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -218,100 +220,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <!-- ... -->
-<section id="config" class="level1">
-<h1>Config</h1>
-<hr>
-<section id="createsamplecfg" class="level3">
-<h3 class="anchored" data-anchor-id="createsamplecfg">createSampleCfg</h3>
+<p>Example:</p>
 <blockquote class="blockquote">
-<pre><code> createSampleCfg (_fn:str='sample_cfg.yml', _overwrite:bool=False)</code></pre>
+<p>“Parts of a string where there are <strong>bolded elements</strong> and <em>italicized elements</em>.”</p>
 </blockquote>
-<p><em>Create sample configuration file in current working directory.</em></p>
+<p>Note that RichText ignores styling and uses the default style in the Word template unless explicitly specified.</p>
+<p>Use the patched <code>RT</code> class in this module and initialize with a <code>RTFormatOpts</code> instance to set up default styling options.</p>
+<hr>
+<section id="rtformatopts" class="level3">
+<h3 class="anchored" data-anchor-id="rtformatopts">RTFormatOpts</h3>
+<blockquote class="blockquote">
+<pre><code> RTFormatOpts (style:str=None, color:str=None, highlight:str=None,
+               size:int=22, subscript:bool=None, superscript:bool=None,
+               bold:bool=False, italic:bool=False, underline:str=False,
+               strike:bool=False, font:str='Arial', url_id:str=None)</code></pre>
+</blockquote>
+<p>Default options:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>style: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>  <span class="co"># based on style name in Word doc</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>color: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>  <span class="co"># e.g., `#00FFFF`</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>highlight: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>  <span class="co"># e.g., `#FFFF00`</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>size: <span class="bu">int</span> <span class="op">=</span> <span class="dv">22</span>  <span class="co"># == 11 in Word </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>subscript: <span class="bu">bool</span> <span class="op">=</span> <span class="va">None</span>   </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>superscript: <span class="bu">bool</span> <span class="op">=</span> <span class="va">None</span>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>bold: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>italic: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>underline: <span class="bu">str</span> <span class="op">=</span> <span class="va">False</span>  <span class="co"># options: `'single', 'double', 'thick', 'dotted', 'dash', 'dotDash', 'dotDotDash', 'wave'`</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>strike: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>font: <span class="bu">str</span> <span class="op">=</span> <span class="st">"Arial"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>url_id: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>  <span class="co"># e.g., `url_id=tpl.build_url_id("http://google.com")` where `tpl` is a `DocxTemplate` object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="rt" class="level3">
+<h3 class="anchored" data-anchor-id="rt">RT</h3>
+<blockquote class="blockquote">
+<pre><code> RT (_default_opts=None, text=None, **text_prop)</code></pre>
+</blockquote>
+<p><em>Inherits from base docxtpl RichText and adds a few QOL methods. When initializing, pass in <code>RTFormatOpts</code> only.</em></p>
+<hr>
+</section>
+<section id="rt.addtext" class="level3">
+<h3 class="anchored" data-anchor-id="rt.addtext">RT.addText</h3>
+<blockquote class="blockquote">
+<pre><code> RT.addText (text:str, **text_prop)</code></pre>
+</blockquote>
+<p><em>Add text and any additional styling options.</em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>_fn</td>
+<td>text</td>
 <td>str</td>
-<td>sample_cfg.yml</td>
 <td>str</td>
 </tr>
 <tr class="even">
-<td>_overwrite</td>
-<td>bool</td>
-<td>False</td>
-<td>bool</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>int</strong></td>
+<td>text_prop</td>
+<td>VAR_KEYWORD</td>
 <td></td>
-<td><strong>0 == success</strong></td>
-</tr>
-</tbody>
-</table>
-<p>The config file uses YAML format for easy editing. Here you specify the data / template filepaths, as well as which groups require which templates. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="st">'C:\path\to\data.parquet'</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">id_col</span><span class="kw">:</span><span class="at"> </span><span class="st">'id'</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">group_col</span><span class="kw">:</span><span class="at"> </span><span class="st">'_group'</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">multi_line_cols</span><span class="kw">:</span><span class="co">  # optional</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'str_mailing_details'</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tables</span><span class="kw">:</span><span class="co">  # optional</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'tbl1'</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'tbl2'</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">group1</span><span class="kw">:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template.docx'</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template2.docx'</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">group2</span><span class="kw">:</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template.docx'</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template3.docx'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is particularly useful when you have many groups, each requiring different combinations of templates.</p>
-</section>
-</section>
-<section id="merge" class="level1">
-<h1>Merge</h1>
-<hr>
-<section id="groupmergedata" class="level3">
-<h3 class="anchored" data-anchor-id="groupmergedata">GroupMergeData</h3>
-<blockquote class="blockquote">
-<pre><code> GroupMergeData (cfg:dict, group_data:dict[str,list],
-                 df:pandas.core.frame.DataFrame, tables:list|None,
-                 _test:int)</code></pre>
-</blockquote>
-<hr>
-</section>
-<section id="convertandcombinepdfs" class="level3">
-<h3 class="anchored" data-anchor-id="convertandcombinepdfs">convertAndCombinePdfs</h3>
-<blockquote class="blockquote">
-<pre><code> convertAndCombinePdfs (parent_dir:str, file_name:str)</code></pre>
-</blockquote>
-<p><em>Convert entire directory of docx to individual pdfs then combine into a single pdf.</em></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>parent_dir</td>
-<td>str</td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td>file_name</td>
-<td>str</td>
-<td>str - name of resulting combined pdf</td>
 </tr>
 <tr class="odd">
 <td><strong>Returns</strong></td>
@@ -320,53 +290,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<hr>
 </section>
-<section id="merge-1" class="level3">
-<h3 class="anchored" data-anchor-id="merge-1">merge</h3>
-<blockquote class="blockquote">
-<pre><code> merge (cfg_path:str, _test:int=0)</code></pre>
-</blockquote>
-<p><em>Run merge</em></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>cfg_path</td>
-<td>str</td>
-<td></td>
-<td>All config options should be entered in the config yaml file.</td>
-</tr>
-<tr class="even">
-<td>_test</td>
-<td>int</td>
-<td>0</td>
-<td>int - if &gt; 0, processes first <code>_test</code> rows only</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="example" class="level1">
+<h1>Example</h1>
+<div id="cell-9" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> createSampleRT(tr: pd.Series) <span class="op">-&gt;</span> RichText:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""-&gt; RichText</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    tr : pd.Series</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">        pd.Series</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    RichText</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">        RichText</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> tr[<span class="st">"name"</span>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    _id <span class="op">=</span> tr[<span class="st">"id"</span>]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    group <span class="op">=</span> tr[<span class="st">"group"</span>]</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    _opts <span class="op">=</span> RTFormatOpts(size<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    rt <span class="op">=</span> RT(_opts)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    rt.addText(<span class="st">"Member ID: "</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    rt.addText(_id, bold<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    rt.addText(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    rt.addText(<span class="st">"Name: "</span>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    rt.addText(name, bold<span class="op">=</span><span class="va">True</span>, italic<span class="op">=</span><span class="va">True</span>, underline<span class="op">=</span><span class="st">"thick"</span>, color<span class="op">=</span><span class="st">"#FF0000"</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    rt.addText(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    rt.addText(<span class="st">"Group "</span>, color<span class="op">=</span><span class="st">"#32a856"</span>, bold<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    rt.addText(group, color<span class="op">=</span><span class="st">"#32a856"</span>, bold<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># rt.addText()</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-10" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>[<span class="st">"id"</span>, <span class="st">"group"</span>, <span class="st">"name"</span>])</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">0</span>] <span class="op">=</span> [<span class="st">"123"</span>, <span class="st">"A"</span>, <span class="st">"Bob"</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"text"</span>] <span class="op">=</span> df.<span class="bu">apply</span>(createSampleRT, axis<span class="op">=</span><span class="dv">1</span>).astype(<span class="bu">str</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df.to_parquet(<span class="st">"../tests/richtext/dat.parquet"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>mmm.merge(<span class="st">"../tests/richtext/cfg.yml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 1/1 [00:00&lt;00:00,  1.12it/s]</code></pre>
+</div>
+</div>
+<p>Example template:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/template_example.png" class="img-fluid figure-img"></p>
+<figcaption>Example template</figcaption>
+</figure>
+</div>
+<p>Example result:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/richtext_example.png" class="img-fluid figure-img"></p>
+<figcaption>Example result</figcaption>
+</figure>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

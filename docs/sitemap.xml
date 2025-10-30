@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pyronone.github.io/mail_merge/index.html</loc>
-    <lastmod>2025-04-19T17:40:46.990Z</lastmod>
+    <lastmod>2025-10-29T20:15:38.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pyronone.github.io/mail_merge/richtext.html</loc>
+    <lastmod>2025-10-29T20:15:39.433Z</lastmod>
   </url>
   <url>
     <loc>https://pyronone.github.io/mail_merge/core.html</loc>
-    <lastmod>2025-04-19T17:40:47.619Z</lastmod>
+    <lastmod>2025-10-29T20:15:39.104Z</lastmod>
   </url>
   <url>
     <loc>https://pyronone.github.io/mail_merge/merge.html</loc>
-    <lastmod>2025-04-20T21:01:39.440Z</lastmod>
+    <lastmod>2025-10-29T20:15:39.455Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pyronone.github.io/mail_merge/tables.html</loc>
+    <lastmod>2025-10-29T20:15:39.371Z</lastmod>
   </url>
 </urlset>

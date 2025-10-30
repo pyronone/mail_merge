@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>mail_merge</title>
+<title>Seamless Mass Mailings, Simplified – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,10 +69,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="mail_merge">
+<meta property="og:title" content="Seamless Mass Mailings, Simplified – mail_merge">
 <meta property="og:description" content="…">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="mail_merge">
+<meta name="twitter:title" content="Seamless Mass Mailings, Simplified – mail_merge">
 <meta name="twitter:description" content="…">
 <meta name="twitter:card" content="summary">
 </head>
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">mail_merge</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Seamless Mass Mailings, Simplified</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -113,19 +113,31 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">mail_merge</span></a>
+ <span class="menu-text">Seamless Mass Mailings, Simplified</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./core.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00_core</span></a>
+ <span class="menu-text">Core</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./merge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01_merge</span></a>
+ <span class="menu-text">Merge</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./richtext.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RichText</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tables</span></a>
   </div>
 </li>
     </ul>
@@ -133,15 +145,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#features-benefits" id="toc-features-benefits" class="nav-link active" data-scroll-target="#features-benefits">Features &amp; Benefits</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">mail_merge</h1>
+<h1 class="title">Seamless Mass Mailings, Simplified</h1>
 </div>
 
 
@@ -159,13 +177,24 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- ... -->
-<p>At TELUS Health / LifeWorks, I have successfully executed over a dozen mail merges, many of which had thousands of recipients, a wide variety of templates, tight deadlines, and constant changes to both templates and data.</p>
-<p>With a natural inclination for process efficiency, I used Python scripts to streamline the process. For the sake of organization, maintainability, and documentation, I have bundled commonly used functions from those scripts into a single package.</p>
-<p>I have also tested, with great results, using <a href="https://docxtpl.readthedocs.io/en/latest/">docxtpl</a> for the actual merge itself as the built-in MS Word function proved inconsistent and unreliable, especially for larger merges and complex templates.</p>
-<p>This package allows for effortless running and re-running of merges with manual steps kept to a minimum. This is particularly useful when there are frequent changes to the templates and/or data, and when there are many different groups requiring different combinations of templates.</p>
-<p><a href="https://pyronone.github.io/mail_merge/">Documentation</a></p>
+<p>At TELUS Health / LifeWorks, I have successfully executed dozens of mail merges, many of which had thousands of recipients, a wide variety of templates, tight deadlines, and constant changes to both templates and data. With a natural inclination for process efficiency, I’ve created a Python package to streamline the process.</p>
+<hr>
+<section id="features-benefits" class="level3">
+<h3 class="anchored" data-anchor-id="features-benefits">Features &amp; Benefits</h3>
+<ul>
+<li><strong>Reliable Mail Merges</strong>: Eliminate common errors and inconsistencies that come with manual mail merges.</li>
+<li><strong>Effortless Re-runs</strong>: Quickly re-run merges with updated data or templates with minimal manual steps.</li>
+<li><strong>Dynamic Template Management</strong>: Easily handle frequent template updates across multiple campaigns.</li>
+<li><strong>Group-Specific Flexibility</strong>: Automatically generate the right combination of templates for different recipient groups.</li>
+<li><strong>Time-Saving Automation</strong>: Reduce repetitive manual steps and free up time for more important work.</li>
+<li><strong>Scalable for Complexity</strong>: Designed to handle high volumes and complex mailing structures with ease.</li>
+<li><strong>Built-in Formatting Tools</strong>: Convert numbers into properly formatted currencies, and standardize dates in both English and French.</li>
+<li><strong>Address Processing</strong>: Clean and structure address fields automatically for mailing accuracy.</li>
+<li><strong>Consistent Output</strong>: Ensure all merged documents use the same professional, localized formatting—no manual tweaks required.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

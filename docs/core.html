@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="utils and functions for formatting data">
+<meta name="description" content="Utilities and functions for formatting data">
 
-<title>00_core – mail_merge</title>
+<title>Core – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,11 +107,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="00_core – mail_merge">
-<meta property="og:description" content="utils and functions for formatting data">
+<meta property="og:title" content="Core – mail_merge">
+<meta property="og:description" content="Utilities and functions for formatting data">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="00_core – mail_merge">
-<meta name="twitter:description" content="utils and functions for formatting data">
+<meta name="twitter:title" content="Core – mail_merge">
+<meta name="twitter:description" content="Utilities and functions for formatting data">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./core.html">00_core</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./core.html">Core</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -151,19 +151,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">mail_merge</span></a>
+ <span class="menu-text">Seamless Mass Mailings, Simplified</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./core.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">00_core</span></a>
+ <span class="menu-text">Core</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./merge.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01_merge</span></a>
+ <span class="menu-text">Merge</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./richtext.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RichText</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tables</span></a>
   </div>
 </li>
     </ul>
@@ -176,28 +188,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#init-fxs" id="toc-init-fxs" class="nav-link active" data-scroll-target="#init-fxs">00 init fxs</a>
+  <li><a href="#formatting-data" id="toc-formatting-data" class="nav-link active" data-scroll-target="#formatting-data">Formatting Data</a>
   <ul class="collapse">
-  <li><a href="#setuplogger" id="toc-setuplogger" class="nav-link" data-scroll-target="#setuplogger">setupLogger</a></li>
-  <li><a href="#loadserializedlog" id="toc-loadserializedlog" class="nav-link" data-scroll-target="#loadserializedlog">loadSerializedLog</a></li>
-  <li><a href="#fp" id="toc-fp" class="nav-link" data-scroll-target="#fp">fp</a></li>
-  <li><a href="#yaml_helper" id="toc-yaml_helper" class="nav-link" data-scroll-target="#yaml_helper">yaml_helper</a></li>
-  </ul></li>
-  <li><a href="#formatting-data" id="toc-formatting-data" class="nav-link" data-scroll-target="#formatting-data">01 formatting data</a>
-  <ul class="collapse">
-  <li><a href="#numbers" id="toc-numbers" class="nav-link" data-scroll-target="#numbers">numbers</a>
+  <li><a href="#numbers" id="toc-numbers" class="nav-link" data-scroll-target="#numbers">Numbers</a>
   <ul class="collapse">
   <li><a href="#formatoptions" id="toc-formatoptions" class="nav-link" data-scroll-target="#formatoptions">FormatOptions</a></li>
   <li><a href="#fix_round" id="toc-fix_round" class="nav-link" data-scroll-target="#fix_round">fix_round</a></li>
   <li><a href="#round_and_format" id="toc-round_and_format" class="nav-link" data-scroll-target="#round_and_format">round_and_format</a></li>
   </ul></li>
-  <li><a href="#dates" id="toc-dates" class="nav-link" data-scroll-target="#dates">dates</a>
+  <li><a href="#dates" id="toc-dates" class="nav-link" data-scroll-target="#dates">Dates</a>
   <ul class="collapse">
   <li><a href="#date_to_string" id="toc-date_to_string" class="nav-link" data-scroll-target="#date_to_string">date_to_string</a></li>
   <li><a href="#convertexcelnumericdates" id="toc-convertexcelnumericdates" class="nav-link" data-scroll-target="#convertexcelnumericdates">convertExcelNumericDates</a></li>
   <li><a href="#convert_yyyymmdd" id="toc-convert_yyyymmdd" class="nav-link" data-scroll-target="#convert_yyyymmdd">convert_yyyymmdd</a></li>
   </ul></li>
-  <li><a href="#address" id="toc-address" class="nav-link" data-scroll-target="#address">address</a>
+  <li><a href="#addresses" id="toc-addresses" class="nav-link" data-scroll-target="#addresses">Addresses</a>
   <ul class="collapse">
   <li><a href="#add_mailing_details_col" id="toc-add_mailing_details_col" class="nav-link" data-scroll-target="#add_mailing_details_col">add_mailing_details_col</a></li>
   <li><a href="#abbreviateprovince" id="toc-abbreviateprovince" class="nav-link" data-scroll-target="#abbreviateprovince">abbreviateProvince</a></li>
@@ -211,12 +216,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">00_core</h1>
+<h1 class="title">Core</h1>
 </div>
 
 <div>
   <div class="description">
-    utils and functions for formatting data
+    Utilities and functions for formatting data
   </div>
 </div>
 
@@ -234,191 +239,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <!-- ... -->
-<section id="init-fxs" class="level1">
-<h1>00 init fxs</h1>
-<hr>
-<section id="setuplogger" class="level3">
-<h3 class="anchored" data-anchor-id="setuplogger">setupLogger</h3>
-<blockquote class="blockquote">
-<pre><code> setupLogger (name:str='log', serialize:bool=False)</code></pre>
-</blockquote>
-<p><em>add handler attached to <code>&lt;name&gt;.log</code> @ trace level and up</em></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>name</td>
-<td>str</td>
-<td>log</td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td>serialize</td>
-<td>bool</td>
-<td>False</td>
-<td>bool</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="loadserializedlog" class="level3">
-<h3 class="anchored" data-anchor-id="loadserializedlog">loadSerializedLog</h3>
-<blockquote class="blockquote">
-<pre><code> loadSerializedLog (log_fp:str, incl_full_record:bool=False,
-                    incl_unix_ts:bool=False)</code></pre>
-</blockquote>
-<p><em>-&gt; pd.DataFrame</em></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>log_fp</td>
-<td>str</td>
-<td></td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td>incl_full_record</td>
-<td>bool</td>
-<td>False</td>
-<td>bool</td>
-</tr>
-<tr class="odd">
-<td>incl_unix_ts</td>
-<td>bool</td>
-<td>False</td>
-<td>bool</td>
-</tr>
-<tr class="even">
-<td><strong>Returns</strong></td>
-<td><strong>DataFrame</strong></td>
-<td></td>
-<td><strong>pd.DataFrame</strong></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="fp" class="level3">
-<h3 class="anchored" data-anchor-id="fp">fp</h3>
-<blockquote class="blockquote">
-<pre><code> fp (_path:str='', ambiguous_err:bool=True)</code></pre>
-</blockquote>
-<p><em>For referencing relative file paths in dev env. Assumes core is always one level down from project root directory.</em></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>_path</td>
-<td>str</td>
-<td></td>
-<td>str - eg. <code>"../dat/some_file.csv"</code> == <code>"&lt;project_root&gt;/dat/some_file.csv&gt;"</code></td>
-</tr>
-<tr class="even">
-<td>ambiguous_err</td>
-<td>bool</td>
-<td>True</td>
-<td>bool - if True, will raise exception if path is ambiguous when running docs generation vs dev env</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>str</strong></td>
-<td></td>
-<td><strong>str</strong></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="yaml_helper" class="level3">
-<h3 class="anchored" data-anchor-id="yaml_helper">yaml_helper</h3>
-<blockquote class="blockquote">
-<pre><code> yaml_helper (fpath:str='./config.yaml', mode:str='r',
-              data:Optional[dict]=None)</code></pre>
-</blockquote>
-<p><em>Helper function to read, write, append to files in yaml format. Checks for duplicate keys if reading or appending.</em></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>fpath</td>
-<td>str</td>
-<td>./config.yaml</td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td>mode</td>
-<td>str</td>
-<td>r</td>
-<td>str - r / a / w</td>
-</tr>
-<tr class="odd">
-<td>data</td>
-<td>Optional</td>
-<td>None</td>
-<td>cannot be None if writing or appending</td>
-</tr>
-<tr class="even">
-<td><strong>Returns</strong></td>
-<td><strong>dict</strong></td>
-<td></td>
-<td><strong>dict - data if reading, {‘r’: 0} if writing/appending</strong></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
 <section id="formatting-data" class="level1">
-<h1>01 formatting data</h1>
+<h1>Formatting Data</h1>
 <section id="numbers" class="level2">
-<h2 class="anchored" data-anchor-id="numbers">numbers</h2>
+<h2 class="anchored" data-anchor-id="numbers">Numbers</h2>
 <hr>
 <section id="formatoptions" class="level3">
 <h3 class="anchored" data-anchor-id="formatoptions">FormatOptions</h3>
@@ -427,23 +251,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 comma_str:str=',', decimal_str:str='.',
                 pad_zeroes_at_end:bool=True,
                 return_int_if_possible:bool=False,
-                accounting_notation:bool=False)</code></pre>
+                accounting_notation:bool=False, ignore_na:bool=True)</code></pre>
 </blockquote>
-<p>Options for numerical formatting. Supports most locale conventions / currency formatting:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>_format: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span>  <span class="co"># True returns str, False returns float</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>prefix: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>suffix: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>comma_str: <span class="bu">str</span> <span class="op">=</span> <span class="st">","</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>decimal_str: <span class="bu">str</span> <span class="op">=</span> <span class="st">"."</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>pad_zeroes_at_end: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>return_int_if_possible: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>accounting_notation: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>  <span class="co"># negative numbers in parentheses</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dataclass storing options/config for numerical formatting. Supports most locale conventions / currency formatting:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    _format: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span>  <span class="co"># True returns str, False returns float</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    prefix: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    suffix: <span class="bu">str</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    comma_str: <span class="bu">str</span> <span class="op">=</span> <span class="st">","</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    decimal_str: <span class="bu">str</span> <span class="op">=</span> <span class="st">"."</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    pad_zeroes_at_end: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    return_int_if_possible: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    accounting_notation: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span>  <span class="co"># negative numbers in parentheses</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    ignore_na: <span class="bu">bool</span> <span class="op">=</span> <span class="va">True</span>  <span class="co"># if input is null, return null</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="fix_round" class="level3">
 <h3 class="anchored" data-anchor-id="fix_round">fix_round</h3>
 <blockquote class="blockquote">
-<pre><code> fix_round (num:float|int, position:int=0)</code></pre>
+<pre><code> fix_round (num:float|int|None, position:int=0)</code></pre>
 </blockquote>
 <p><em>Python’s built-in <code>round</code> function can return unexpected results. See <code>https://docs.python.org/3/library/functions.html#round</code>. This function returns the same result as the Excel <code>ROUND</code> function.</em></p>
 <table class="caption-top table">
@@ -458,9 +283,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td>num</td>
-<td>float | int</td>
+<td>float | int | None</td>
 <td></td>
-<td>float | int</td>
+<td>float | int | None</td>
 </tr>
 <tr class="even">
 <td>position</td>
@@ -470,40 +295,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><strong>Returns</strong></td>
-<td><strong>float</strong></td>
+<td><strong>float | None</strong></td>
 <td></td>
-<td><strong>float</strong></td>
+<td><strong>float | None</strong></td>
 </tr>
 </tbody>
 </table>
-<div id="cell-13" class="cell">
+<div id="cell-9" class="cell">
 <details class="code-fold">
-<summary>Tests</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    fix_round(<span class="st">"test"</span>, <span class="dv">123</span>)  <span class="co"># type: ignore</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">23.335</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">23.34</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">23.34</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">23.35</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="op">-</span><span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">23.34</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="op">-</span><span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">23.35</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="dv">1</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">1</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>((fix_round(<span class="dv">1</span>, <span class="dv">2</span>)), <span class="bu">float</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">1.0</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">1</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>((fix_round(<span class="fl">1.0</span>, <span class="dv">2</span>)), <span class="bu">float</span>)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">6789.2342335</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="fl">6789.234234</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="fl">6789.234234</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="fl">6789.234235</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="op">-</span><span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">6789.234234</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="op">-</span><span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">6789.234235</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">0.0</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">0.0</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="op">-</span><span class="fl">0.0</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">0.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testFixRound</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"invalid input"</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    fix_round(<span class="st">"test"</span>, <span class="dv">123</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">23.335</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">23.34</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">23.34</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">23.35</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="op">-</span><span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">23.34</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="op">-</span><span class="fl">23.345</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">23.35</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="dv">1</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>((fix_round(<span class="dv">1</span>, <span class="dv">2</span>)), <span class="bu">float</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">1.0</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>((fix_round(<span class="fl">1.0</span>, <span class="dv">2</span>)), <span class="bu">float</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">6789.2342335</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="fl">6789.234234</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="fl">6789.234234</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="fl">6789.234235</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">round</span>(<span class="op">-</span><span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">6789.234234</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="op">-</span><span class="fl">6789.2342345</span>, <span class="dv">6</span>) <span class="op">==</span> <span class="op">-</span><span class="fl">6789.234235</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="fl">0.0</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">0.0</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="op">-</span><span class="fl">0.0</span>, <span class="dv">2</span>) <span class="op">==</span> <span class="fl">0.0</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># null input</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(<span class="va">None</span>, <span class="dv">5</span>) <span class="op">==</span> <span class="va">None</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(np.nan, <span class="dv">5</span>) <span class="op">==</span> <span class="va">None</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(pd.NaT, <span class="dv">5</span>) <span class="op">==</span> <span class="va">None</span>  <span class="co"># type: ignore</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> fix_round(pd.NA, <span class="dv">5</span>) <span class="op">==</span> <span class="va">None</span>  <span class="co"># type: ignore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <hr>
@@ -511,243 +342,364 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="round_and_format" class="level3">
 <h3 class="anchored" data-anchor-id="round_and_format">round_and_format</h3>
 <blockquote class="blockquote">
-<pre><code> round_and_format (num:float|int, position:int,
-                   format_opts:__main__.FormatOptions)</code></pre>
+<pre><code> round_and_format (num:float|int|None, position:int,
+                   format_opts:__main__.FormatOptions, errors:str='raise')</code></pre>
 </blockquote>
-<p><em>-&gt; str | float | None</em></p>
+<p><em>Round and format a number</em></p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
 <th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
 <th><strong>Details</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>num</td>
-<td>float | int</td>
-<td>float | int</td>
+<td>float | int | None</td>
+<td></td>
+<td>float | int | None</td>
 </tr>
 <tr class="even">
 <td>position</td>
 <td>int</td>
+<td></td>
 <td>int</td>
 </tr>
 <tr class="odd">
 <td>format_opts</td>
 <td>FormatOptions</td>
+<td></td>
 <td>FormatOptions</td>
 </tr>
 <tr class="even">
+<td>errors</td>
+<td>str</td>
+<td>raise</td>
+<td><code>raise</code>, <code>coerce</code> or <code>ignore</code> - handles <code>num</code> that is non-null but not float or int; by default “raise”</td>
+</tr>
+<tr class="odd">
 <td><strong>Returns</strong></td>
 <td><strong>str | float | None</strong></td>
+<td></td>
 <td><strong>str | float | None</strong></td>
 </tr>
 </tbody>
 </table>
-<div id="cell-15" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>round_and_format(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">9123.9999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>, comma_str<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p>Examples</p>
+<div id="cell-14" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>round_and_format(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">9123.9999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>, comma_str<span class="op">=</span><span class="st">""</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'-9124'</code></pre>
 </div>
 </div>
-<div id="cell-16" class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>round_and_format(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">9123.56345</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># https://ifrscommunity.com/forum/viewtopic.php?p=4931&amp;sid=53703b358d2485c3b7eb07f00128b20d#p4931</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-15" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>round_and_format(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">9123.56345</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># https://ifrscommunity.com/forum/viewtopic.php?p=4931&amp;sid=53703b358d2485c3b7eb07f00128b20d#p4931</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'$(9,123.56)'</code></pre>
 </div>
 </div>
-<div id="cell-17" class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>round_and_format(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">5.56123345</span>, <span class="dv">2</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>, suffix<span class="op">=</span><span class="st">"%"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># https://ifrscommunity.com/forum/viewtopic.php?p=4931&amp;sid=53703b358d2485c3b7eb07f00128b20d#p4931</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-16" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>round_and_format(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="fl">5.56123345</span>, <span class="dv">2</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>, suffix<span class="op">=</span><span class="st">"%"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># https://ifrscommunity.com/forum/viewtopic.php?p=4931&amp;sid=53703b358d2485c3b7eb07f00128b20d#p4931</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'(5.56)%'</code></pre>
 </div>
 </div>
-<div id="cell-18" class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, comma_str<span class="op">=</span><span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-17" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, comma_str<span class="op">=</span><span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'$9123.45'</code></pre>
 </div>
 </div>
-<div id="cell-19" class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-18" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'$9,123.45'</code></pre>
 </div>
 </div>
-<div id="cell-20" class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(suffix<span class="op">=</span><span class="st">"$"</span>, comma_str<span class="op">=</span><span class="st">" "</span>, decimal_str<span class="op">=</span><span class="st">","</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-19" class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(suffix<span class="op">=</span><span class="st">"$"</span>, comma_str<span class="op">=</span><span class="st">" "</span>, decimal_str<span class="op">=</span><span class="st">","</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'9 123,45$'</code></pre>
 </div>
 </div>
-<div id="cell-21" class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(suffix<span class="op">=</span><span class="st">"$"</span>, comma_str<span class="op">=</span><span class="st">"."</span>, decimal_str<span class="op">=</span><span class="st">","</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-20" class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(suffix<span class="op">=</span><span class="st">"$"</span>, comma_str<span class="op">=</span><span class="st">"."</span>, decimal_str<span class="op">=</span><span class="st">","</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'9.123,45$'</code></pre>
 </div>
 </div>
+<div id="cell-21" class="cell">
+<details class="code-fold">
+<summary>testRoundAndFormat</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">123.445</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"123.45"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"9,123.45"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">2123.445</span>, <span class="dv">2</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>)) <span class="op">==</span> <span class="st">"2123.45"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">123.445</span>, <span class="dv">4</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>, pad_zeroes_at_end<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"123.4450"</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="op">-</span><span class="fl">2342.475</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"-2,342.48"</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>)) <span class="op">==</span> <span class="st">"2,343"</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>, comma_str<span class="op">=</span><span class="st">""</span>)</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343.0"</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>)) <span class="op">==</span> <span class="st">"2343.0"</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>)) <span class="op">==</span> <span class="st">"2,343"</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>, comma_str<span class="op">=</span><span class="st">""</span>)</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343"</span></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">0.0</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"0.0"</span></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(_format<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>(x, <span class="bu">float</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <div id="cell-22" class="cell">
 <details class="code-fold">
-<summary>Tests</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">123.445</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"123.45"</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"9,123.45"</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">2123.445</span>, <span class="dv">2</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>)) <span class="op">==</span> <span class="st">"2123.45"</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">123.445</span>, <span class="dv">4</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>, pad_zeroes_at_end<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"123.4450"</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="op">-</span><span class="fl">2342.475</span>, <span class="dv">2</span>, FormatOptions()) <span class="op">==</span> <span class="st">"-2,342.48"</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>)) <span class="op">==</span> <span class="st">"2,343"</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>, comma_str<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343.0"</span></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">2342.999</span>, <span class="dv">0</span>, FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>)) <span class="op">==</span> <span class="st">"2343.0"</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>)) <span class="op">==</span> <span class="st">"2,343"</span></span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>        <span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">True</span>, comma_str<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2343"</span></span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">2342.999</span>, <span class="dv">1</span>, FormatOptions(return_int_if_possible<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"2,343.0"</span></span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="fl">0.0</span>, <span class="dv">0</span>, FormatOptions()) <span class="op">==</span> <span class="st">"0.0"</span></span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(<span class="fl">9123.445</span>, <span class="dv">2</span>, FormatOptions(_format<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>(x, <span class="bu">float</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testInvalidInputs</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>default_opts <span class="op">=</span> FormatOptions()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="st">"0"</span>, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="st">"abc"</span>, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="st">"abc"</span>, <span class="dv">0</span>, default_opts, <span class="st">"coerce"</span>) <span class="op">==</span> <span class="va">None</span>  <span class="co"># type: ignore</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> round_and_format(<span class="st">"abc"</span>, <span class="dv">0</span>, default_opts, <span class="st">"ignore"</span>) <span class="op">==</span> <span class="st">"abc"</span>  <span class="co"># type: ignore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="cell-23" class="cell">
 <details class="code-fold">
-<summary>testInvalidInputs</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>default_opts <span class="op">=</span> FormatOptions()</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"invalid"</span>):</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="st">"0"</span>, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"invalid"</span>):</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="st">"abc"</span>, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testNullInput</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(<span class="va">None</span>, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(np.nan, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(pd.NaT, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(pd.NA, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="cell-24" class="cell">
 <details class="code-fold">
-<summary>testNullInput</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(<span class="va">None</span>, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(np.nan, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(pd.NaT, <span class="dv">0</span>, default_opts)  <span class="co"># type: ignore</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testAccountingNotation</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">9123.56345</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"$(9,123.56)"</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">9123.56345</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>))</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"$9,123.56"</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">5.56123345</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>, suffix<span class="op">=</span><span class="st">"%"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"(5.56)%"</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        <span class="fl">5.56123345</span>,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>        FormatOptions(comma_str<span class="op">=</span><span class="st">" "</span>, suffix<span class="op">=</span><span class="st">"%"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"5.56%"</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="cell-25" class="cell">
 <details class="code-fold">
-<summary>testAccountingNotation</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">9123.56345</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"$(9,123.56)"</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="fl">9123.56345</span>, <span class="dv">2</span>, FormatOptions(prefix<span class="op">=</span><span class="st">"$"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>))</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"$9,123.56"</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">-</span><span class="fl">5.56123345</span>,</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>,</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>        FormatOptions(comma_str<span class="op">=</span><span class="st">""</span>, suffix<span class="op">=</span><span class="st">"%"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>),</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"(5.56)%"</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    round_and_format(</span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        <span class="fl">5.56123345</span>,</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>,</span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>        FormatOptions(comma_str<span class="op">=</span><span class="st">" "</span>, suffix<span class="op">=</span><span class="st">"%"</span>, accounting_notation<span class="op">=</span><span class="va">True</span>),</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">==</span> <span class="st">"5.56%"</span></span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testIgnoreNa</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> round_and_format(<span class="va">None</span>, <span class="dv">2</span>, FormatOptions(ignore_na<span class="op">=</span><span class="va">True</span>))  <span class="co"># type: ignore</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> round_and_format(<span class="va">None</span>, <span class="dv">2</span>, FormatOptions(ignore_na<span class="op">=</span><span class="va">False</span>))  <span class="co"># type: ignore</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="va">None</span>, <span class="dv">2</span>, FormatOptions(ignore_na<span class="op">=</span><span class="va">False</span>), errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="op">==</span> <span class="va">None</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    round_and_format(<span class="va">None</span>, <span class="dv">2</span>, FormatOptions(ignore_na<span class="op">=</span><span class="va">False</span>), errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="va">None</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 </section>
 <section id="dates" class="level2">
-<h2 class="anchored" data-anchor-id="dates">dates</h2>
+<h2 class="anchored" data-anchor-id="dates">Dates</h2>
 <hr>
 <section id="date_to_string" class="level3">
 <h3 class="anchored" data-anchor-id="date_to_string">date_to_string</h3>
 <blockquote class="blockquote">
 <pre><code> date_to_string
-                 (t_val:pandas._libs.tslibs.timestamps.Timestamp|datetime.
-                 datetime, long:bool=True, period:bool=False,
-                 french:bool=False)</code></pre>
+                 (date:pandas._libs.tslibs.timestamps.Timestamp|datetime.d
+                 atetime|None, long:bool=True, period:bool=False,
+                 french:bool=False, errors:str='raise',
+                 ignore_na:bool=True)</code></pre>
 </blockquote>
+<p><em>Format date to string</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Type</strong></th>
+<th><strong>Default</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>date</td>
+<td>pandas._libs.tslibs.timestamps.Timestamp | datetime.datetime | None</td>
+<td></td>
+<td>pd.Timestamp | datetime | None</td>
+</tr>
+<tr class="even">
+<td>long</td>
+<td>bool</td>
+<td>True</td>
+<td>e.g., January vs Jan</td>
+</tr>
+<tr class="odd">
+<td>period</td>
+<td>bool</td>
+<td>False</td>
+<td>e.g., Jan.&nbsp;vs Jan</td>
+</tr>
+<tr class="even">
+<td>french</td>
+<td>bool</td>
+<td>False</td>
+<td>bool</td>
+</tr>
+<tr class="odd">
+<td>errors</td>
+<td>str</td>
+<td>raise</td>
+<td><code>raise</code>, <code>coerce</code> or <code>ignore</code> - handles <code>date</code> that is non-null but not Timestamp or datetime; by default “raise”</td>
+</tr>
+<tr class="even">
+<td>ignore_na</td>
+<td>bool</td>
+<td>True</td>
+<td>if input is null, return null</td>
+</tr>
+<tr class="odd">
+<td><strong>Returns</strong></td>
+<td><strong>str | None</strong></td>
+<td></td>
+<td><strong>str | None</strong></td>
+</tr>
+</tbody>
+</table>
 <div id="cell-28" class="cell">
 <details class="code-fold">
-<summary>Tests</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">3</span>, <span class="dv">19</span>, <span class="dv">16</span>, <span class="dv">39</span>, <span class="dv">2</span>, <span class="dv">126548</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x) <span class="op">==</span> <span class="st">"March 19, 2024"</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar 19, 2024"</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, period<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar. 19, 2024"</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> pd.to_datetime(<span class="st">"19-mar-2024"</span>)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x) <span class="op">==</span> <span class="st">"March 19, 2024"</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar 19, 2024"</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, period<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar. 19, 2024"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testDateToStr</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> datetime(<span class="dv">2024</span>, <span class="dv">3</span>, <span class="dv">19</span>, <span class="dv">16</span>, <span class="dv">39</span>, <span class="dv">2</span>, <span class="dv">126548</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x) <span class="op">==</span> <span class="st">"March 19, 2024"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar 19, 2024"</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, period<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar. 19, 2024"</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> pd.to_datetime(<span class="st">"19-mar-2024"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x) <span class="op">==</span> <span class="st">"March 19, 2024"</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar 19, 2024"</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, period<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"Mar. 19, 2024"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="cell-29" class="cell">
 <details class="code-fold">
 <summary>testFrench</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> datetime(<span class="dv">1920</span>, <span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>) <span class="op">==</span> <span class="st">"1 décembre 1920"</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>, period<span class="op">=</span><span class="va">True</span>) <span class="op">==</span> <span class="st">"1 déc. 1920"</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>, period<span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"1 déc 1920"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> datetime(<span class="dv">1920</span>, <span class="dv">12</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>) <span class="op">==</span> <span class="st">"1 décembre 1920"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>, period<span class="op">=</span><span class="va">True</span>) <span class="op">==</span> <span class="st">"1 déc. 1920"</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>, period<span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"1 déc 1920"</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> pd.to_datetime(<span class="st">"1-dec-1920"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>) <span class="op">==</span> <span class="st">"1 décembre 1920"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>, period<span class="op">=</span><span class="va">True</span>) <span class="op">==</span> <span class="st">"1 déc. 1920"</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(x, french<span class="op">=</span><span class="va">True</span>, <span class="bu">long</span><span class="op">=</span><span class="va">False</span>, period<span class="op">=</span><span class="va">False</span>) <span class="op">==</span> <span class="st">"1 déc 1920"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div id="cell-30" class="cell">
 <details class="code-fold">
 <summary>testInvalidAndNullInput</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"invalid input"</span>):</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    date_to_string(<span class="st">"19-mar-2024"</span>)  <span class="co"># type: ignore</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"invalid input"</span>):</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    date_to_string(<span class="dv">123</span>)  <span class="co"># type: ignore</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(<span class="va">None</span>)  <span class="co"># type: ignore</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(pd.NaT)  <span class="co"># type: ignore</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(np.nan)  <span class="co"># type: ignore</span></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    date_to_string(<span class="st">"19-mar-2024"</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    date_to_string(<span class="dv">123</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    date_to_string(<span class="dv">0</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(<span class="dv">123</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="dv">123</span>  <span class="co"># type: ignore</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(<span class="dv">123</span>, errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="op">==</span> <span class="va">None</span>  <span class="co"># type: ignore</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="co"># null input</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(<span class="va">None</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(pd.NaT)  <span class="co"># type: ignore</span></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(pd.NA)  <span class="co"># type: ignore</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> date_to_string(np.nan)  <span class="co"># type: ignore</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> x <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid input"</span>):</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>    date_to_string(<span class="va">None</span>, ignore_na<span class="op">=</span><span class="va">False</span>)  <span class="co"># type: ignore</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(<span class="va">None</span>, ignore_na<span class="op">=</span><span class="va">False</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="va">None</span>  <span class="co"># type: ignore</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> date_to_string(<span class="va">None</span>, ignore_na<span class="op">=</span><span class="va">False</span>, errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="op">==</span> <span class="va">None</span>  <span class="co"># type: ignore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <hr>
@@ -781,21 +733,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <div id="cell-32" class="cell">
 <details class="code-fold">
-<summary>Tests</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">0</span>) <span class="op">==</span> datetime(<span class="dv">1899</span>, <span class="dv">12</span>, <span class="dv">31</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">2</span>) <span class="op">==</span> datetime(<span class="dv">1900</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">45292</span>) <span class="op">==</span> datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.0</span>) <span class="op">==</span> datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.25</span>) <span class="op">==</span> datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">0</span>)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">0</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">1899</span>, <span class="dv">12</span>, <span class="dv">31</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">2</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">1900</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">45292</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.0</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.25</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">0</span>))</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> convertExcelNumericDates(<span class="dv">45292</span>)</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>(x, pd.Timestamp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testConvertExcelNumericDates</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">0</span>) <span class="op">==</span> datetime(<span class="dv">1899</span>, <span class="dv">12</span>, <span class="dv">31</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">2</span>) <span class="op">==</span> datetime(<span class="dv">1900</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">45292</span>) <span class="op">==</span> datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.0</span>) <span class="op">==</span> datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.25</span>) <span class="op">==</span> datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">0</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">0</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">1899</span>, <span class="dv">12</span>, <span class="dv">31</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">2</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">1900</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="dv">45292</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.0</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convertExcelNumericDates(<span class="fl">45292.25</span>) <span class="op">==</span> pd.to_datetime(datetime(<span class="dv">2024</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">0</span>))</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> convertExcelNumericDates(<span class="dv">45292</span>)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">isinstance</span>(x, pd.Timestamp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <hr>
@@ -829,14 +781,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <div id="cell-34" class="cell">
 <details class="code-fold">
-<summary>Tests</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convert_yyyymmdd(<span class="st">"19120124"</span>) <span class="op">==</span> pd.Timestamp(<span class="st">"1912-01-24 00:00:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>testConvertyyyymmdd</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> convert_yyyymmdd(<span class="st">"19120124"</span>) <span class="op">==</span> pd.Timestamp(<span class="st">"1912-01-24 00:00:00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 </section>
-<section id="address" class="level2">
-<h2 class="anchored" data-anchor-id="address">address</h2>
+<section id="addresses" class="level2">
+<h2 class="anchored" data-anchor-id="addresses">Addresses</h2>
 <hr>
 <section id="add_mailing_details_col" class="level3">
 <h3 class="anchored" data-anchor-id="add_mailing_details_col">add_mailing_details_col</h3>
@@ -845,12 +797,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                           address_dict:dict,
                           col_name:str='str_mailing_details')</code></pre>
 </blockquote>
-<p>*Adds column to dataframe w/ full mailing details in upper case:</p>
+<p><em>Adds column to dataframe w/ full mailing details in upper case:</em></p>
 <pre><code>&lt;full name&gt;
 &lt;street lines (up to 3)&gt;
 &lt;city, province  postal code&gt; - handles various combinations of missing data in case of foreign addresses
 &lt;country&gt;</code></pre>
-<p>If there’s a <code>c/o</code> line, moves it to 2nd line.*</p>
+<p><em>If there’s a <code>c/o</code> line, moves it to 2nd line.</em></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -877,54 +829,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>address_dict</td>
 <td>dict</td>
 <td></td>
-<td>dict - see docs for example</td>
+<td>see docs for example</td>
 </tr>
 <tr class="odd">
 <td>col_name</td>
 <td>str</td>
 <td>str_mailing_details</td>
-<td>str - name of column that will be added</td>
+<td>name of column that will be added</td>
 </tr>
 <tr class="even">
 <td><strong>Returns</strong></td>
 <td><strong>DataFrame</strong></td>
 <td></td>
-<td><strong>pd.DataFrame</strong></td>
+<td><strong>copy of df w/ new column added</strong></td>
 </tr>
 </tbody>
 </table>
-<div id="cell-37" class="cell">
-<details class="code-fold">
-<summary>testAddMailingDetailsCol1</summary>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"str_full_name2"</span>,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"Address-1"</span>,</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"Address-2"</span>,</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"Address-3"</span>,</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"Address-4"</span>,</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"Postal Code"</span>,</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"Province"</span>,</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"Current Address.Country"</span>,</span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>compare_df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests/addMailingDetailsCol/dat.parquet"</span>))</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> _prep_data0()  <span class="co"># where `Address-3` column is present</span></span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> add_mailing_details_col(df, address_dict)</span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> res[<span class="st">"str_mailing_details"</span>].tolist() <span class="op">==</span> compare_df[<span class="st">"str_mailing_details"</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="cell-38" class="cell">
-<details class="code-fold">
-<summary>testAddMailingDetailsCol2</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> _prep_data1()  <span class="co"># where `Address-3` column is not present</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> add_mailing_details_col(df, address_dict)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> res[<span class="st">"str_mailing_details"</span>].tolist() <span class="op">==</span> compare_df[<span class="st">"str_mailing_details"</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <p>Example</p>
-<div id="cell-40" class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"../tests/for_docs/fake_data.xlsx"</span>)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-38" class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"../tests/for_docs/fake_data.xlsx"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 
@@ -1019,23 +943,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-41" class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample `address_dict`, where values are column names in the data. Max 3 columns for street column.</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"_full_name"</span>,</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"street1"</span>,</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"street2"</span>,</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"n/a"</span>,</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"city"</span>,</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"province"</span>,</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"postal_code"</span>,</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"country"</span>,</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> add_mailing_details_col(df, address_dict, <span class="st">"str_mailing_details"</span>)</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> res[<span class="st">"str_mailing_details"</span>].tolist():</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(r)</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-39" class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample `address_dict`, where values are column names in the data. Max 3 columns for street column.</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>address_dict <span class="op">=</span> {</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"_full_name"</span>,</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street1"</span>: <span class="st">"street1"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street2"</span>: <span class="st">"street2"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"street3"</span>: <span class="st">"n/a"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"city"</span>: <span class="st">"city"</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"prov"</span>: <span class="st">"province"</span>,</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"pc"</span>: <span class="st">"postal_code"</span>,</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"country"</span>: <span class="st">"country"</span>,</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> add_mailing_details_col(df, address_dict, <span class="st">"str_mailing_details"</span>)</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r <span class="kw">in</span> res[<span class="st">"str_mailing_details"</span>].tolist():</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(r)</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>HENRY ALVARADO
 C/O JAMES SMITH
@@ -1100,30 +1024,30 @@ CANADA
 </tr>
 </tbody>
 </table>
-<div id="cell-43" class="cell">
+<div id="cell-41" class="cell">
 <details class="code-fold">
 <summary>testAbbrevProvince</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid province name"</span>):</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"raise"</span>)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="kw">is</span> <span class="va">None</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="st">"FL"</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid `error` arg"</span>):</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"test"</span>)</span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"Ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"newfoundland"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
-<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"NEWFOUNDLAND AND LABRADOR"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
-<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"yukon"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
-<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"YUKON TERRITORY"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
-<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"PEI"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
-<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"Prince edward island"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"novascotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span>
-<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"nova scotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid province name"</span>):</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"raise"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"coerce"</span>) <span class="kw">is</span> <span class="va">None</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="op">==</span> <span class="st">"FL"</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pytest.raises(<span class="pp">Exception</span>, match<span class="op">=</span><span class="st">"Invalid `errors` arg"</span>):</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    abbreviateProvince(<span class="st">"FL"</span>, errors<span class="op">=</span><span class="st">"test"</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"Ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"ontario"</span>) <span class="op">==</span> <span class="st">"ON"</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"newfoundland"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"NEWFOUNDLAND AND LABRADOR"</span>) <span class="op">==</span> <span class="st">"NL"</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"yukon"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"YUKON TERRITORY"</span>) <span class="op">==</span> <span class="st">"YT"</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"PEI"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"Prince edward island"</span>) <span class="op">==</span> <span class="st">"PE"</span></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"novascotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> abbreviateProvince(<span class="st">"nova scotia"</span>) <span class="op">==</span> <span class="st">"NS"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 

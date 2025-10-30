@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Module for working with dynamic tables">
 
-<title>Merge – mail_merge</title>
+<title>Tables – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -100,12 +101,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Merge – mail_merge">
+<meta property="og:title" content="Tables – mail_merge">
+<meta property="og:description" content="Module for working with dynamic tables">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="Merge – mail_merge">
+<meta name="twitter:title" content="Tables – mail_merge">
+<meta name="twitter:description" content="Module for working with dynamic tables">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -130,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./merge.html">Merge</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tables.html">Tables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -156,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./merge.html" class="sidebar-item-text sidebar-link active">
+  <a href="./merge.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Merge</span></a>
   </div>
 </li>
@@ -168,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tables.html" class="sidebar-item-text sidebar-link">
+  <a href="./tables.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
@@ -182,15 +188,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#config" id="toc-config" class="nav-link active" data-scroll-target="#config">Config</a>
+  <li><a href="#pivottbldata" id="toc-pivottbldata" class="nav-link active" data-scroll-target="#pivottbldata">pivotTblData</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
   <ul class="collapse">
-  <li><a href="#createsamplecfg" id="toc-createsamplecfg" class="nav-link" data-scroll-target="#createsamplecfg">createSampleCfg</a></li>
-  </ul></li>
-  <li><a href="#merge" id="toc-merge" class="nav-link" data-scroll-target="#merge">Merge</a>
-  <ul class="collapse">
-  <li><a href="#groupmergedata" id="toc-groupmergedata" class="nav-link" data-scroll-target="#groupmergedata">GroupMergeData</a></li>
-  <li><a href="#convertandcombinepdfs" id="toc-convertandcombinepdfs" class="nav-link" data-scroll-target="#convertandcombinepdfs">convertAndCombinePdfs</a></li>
-  <li><a href="#merge-1" id="toc-merge-1" class="nav-link" data-scroll-target="#merge-1">merge</a></li>
+  <li><a href="#load-and-clean-data" id="toc-load-and-clean-data" class="nav-link" data-scroll-target="#load-and-clean-data">Load and clean data</a></li>
+  <li><a href="#payment-details-table" id="toc-payment-details-table" class="nav-link" data-scroll-target="#payment-details-table">Payment Details table</a></li>
+  <li><a href="#merge" id="toc-merge" class="nav-link" data-scroll-target="#merge">Merge</a></li>
+  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -200,9 +204,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Merge</h1>
+<h1 class="title">Tables</h1>
 </div>
 
+<div>
+  <div class="description">
+    Module for working with dynamic tables
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -218,15 +227,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <!-- ... -->
-<section id="config" class="level1">
-<h1>Config</h1>
 <hr>
-<section id="createsamplecfg" class="level3">
-<h3 class="anchored" data-anchor-id="createsamplecfg">createSampleCfg</h3>
+<section id="pivottbldata" class="level3">
+<h3 class="anchored" data-anchor-id="pivottbldata">pivotTblData</h3>
 <blockquote class="blockquote">
-<pre><code> createSampleCfg (_fn:str='sample_cfg.yml', _overwrite:bool=False)</code></pre>
+<pre><code> pivotTblData (df:pandas.core.frame.DataFrame, tbl_name:str,
+               key_col:str='id')</code></pre>
 </blockquote>
-<p><em>Create sample configuration file in current working directory.</em></p>
+<p><em>Pivot to merge w/ main data</em></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -238,132 +246,328 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>_fn</td>
+<td>df</td>
+<td>DataFrame</td>
+<td></td>
+<td>pd.DataFrame</td>
+</tr>
+<tr class="even">
+<td>tbl_name</td>
 <td>str</td>
-<td>sample_cfg.yml</td>
+<td></td>
+<td>str</td>
+</tr>
+<tr class="odd">
+<td>key_col</td>
+<td>str</td>
+<td>id</td>
 <td>str</td>
 </tr>
 <tr class="even">
-<td>_overwrite</td>
-<td>bool</td>
+<td><strong>Returns</strong></td>
+<td><strong>DataFrame</strong></td>
+<td></td>
+<td><strong>pd.DataFrame</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example" class="level1">
+<h1>Example</h1>
+<section id="load-and-clean-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-and-clean-data">Load and clean data</h2>
+<div id="cell-5" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_parquet(fp(<span class="st">"../tests/example/in/fake_dat.parquet"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">fname</th>
+<th data-quarto-table-cell-role="th">lname</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">dob_verified</th>
+<th data-quarto-table-cell-role="th">email</th>
+<th data-quarto-table-cell-role="th">phone</th>
+<th data-quarto-table-cell-role="th">street</th>
+<th data-quarto-table-cell-role="th">city</th>
+<th data-quarto-table-cell-role="th">prov</th>
+<th data-quarto-table-cell-role="th">pc</th>
+<th data-quarto-table-cell-role="th">comment</th>
+<th data-quarto-table-cell-role="th">amt_total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5790492</td>
+<td>Henry</td>
+<td>Alvarado</td>
+<td>1940-01-10</td>
+<td>True</td>
+<td>mbrown@example.org</td>
+<td>(465) 529-2322</td>
+<td>91971 Williams Shoals</td>
+<td>Port Richard</td>
+<td>Saskatchewan</td>
+<td>M6J 1P4</td>
+<td>Tenetur hic eaque praesentium.</td>
+<td>$2,449.83</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5266792</td>
+<td>Robert</td>
+<td>Henry</td>
+<td>1996-02-04</td>
+<td>True</td>
+<td>gonzalesmegan@example.com</td>
+<td>812-671-2491</td>
+<td>54198 Lambert Isle</td>
+<td>Stevensstad</td>
+<td>Nunavut</td>
+<td>M2M 3L2</td>
+<td>Voluptatibus fugit nam repellendus nemo repell...</td>
+<td>$54,129.69</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3735642</td>
+<td>Jennifer</td>
+<td>Ross</td>
+<td>2004-04-27</td>
+<td>True</td>
+<td>hernandezjill@example.org</td>
+<td>1-156-761-3895</td>
+<td>10535 Bartlett Hills</td>
+<td>Mcknightchester</td>
+<td>Manitoba</td>
+<td>T8K 6J5</td>
+<td>Temporibus eaque quis dignissimos reiciendis d...</td>
+<td>$279,879.10</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-6" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> _cleanSampleDat(df.copy())</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">fname</th>
+<th data-quarto-table-cell-role="th">lname</th>
+<th data-quarto-table-cell-role="th">dob</th>
+<th data-quarto-table-cell-role="th">email</th>
+<th data-quarto-table-cell-role="th">phone</th>
+<th data-quarto-table-cell-role="th">street</th>
+<th data-quarto-table-cell-role="th">city</th>
+<th data-quarto-table-cell-role="th">prov</th>
+<th data-quarto-table-cell-role="th">pc</th>
+<th data-quarto-table-cell-role="th">comment</th>
+<th data-quarto-table-cell-role="th">amt_total</th>
+<th data-quarto-table-cell-role="th">dt_send</th>
+<th data-quarto-table-cell-role="th">str_full_name</th>
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">str_mailing_details</th>
+<th data-quarto-table-cell-role="th">str_comment</th>
+<th data-quarto-table-cell-role="th">dt_dob</th>
+<th data-quarto-table-cell-role="th">bool_some_bool</th>
+<th data-quarto-table-cell-role="th">bool_dob_verified</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5790492</td>
+<td>Henry</td>
+<td>Alvarado</td>
+<td>1940-01-10</td>
+<td>mbrown@example.org</td>
+<td>(465) 529-2322</td>
+<td>91971 Williams Shoals</td>
+<td>Port Richard</td>
+<td>SK</td>
+<td>M6J 1P4</td>
+<td>Tenetur hic eaque praesentium.</td>
+<td>$2,449.83</td>
+<td>March 31, 2025</td>
+<td>Henry Alvarado</td>
+<td>Canada</td>
+<td>HENRY ALVARADO\n91971 WILLIAMS SHOALS\nPORT RI...</td>
+<td>Tenetur hic eaque praesentium.\n\n</td>
+<td>January 10, 1940</td>
 <td>False</td>
-<td>bool</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5266792</td>
+<td>Robert</td>
+<td>Henry</td>
+<td>1996-02-04</td>
+<td>gonzalesmegan@example.com</td>
+<td>812-671-2491</td>
+<td>54198 Lambert Isle</td>
+<td>Stevensstad</td>
+<td>NU</td>
+<td>M2M 3L2</td>
+<td>Voluptatibus fugit nam repellendus nemo repell...</td>
+<td>$54,129.69</td>
+<td>March 31, 2025</td>
+<td>Robert Henry</td>
+<td>Canada</td>
+<td>ROBERT HENRY\n54198 LAMBERT ISLE\nSTEVENSSTAD,...</td>
+<td>Voluptatibus fugit nam repellendus nemo repell...</td>
+<td>February 4, 1996</td>
+<td>False</td>
+<td>True</td>
 </tr>
 <tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>int</strong></td>
-<td></td>
-<td><strong>0 == success</strong></td>
+<td data-quarto-table-cell-role="th">2</td>
+<td>3735642</td>
+<td>Jennifer</td>
+<td>Ross</td>
+<td>2004-04-27</td>
+<td>hernandezjill@example.org</td>
+<td>1-156-761-3895</td>
+<td>10535 Bartlett Hills</td>
+<td>Mcknightchester</td>
+<td>MB</td>
+<td>T8K 6J5</td>
+<td>Temporibus eaque quis dignissimos reiciendis d...</td>
+<td>$279,879.10</td>
+<td>March 31, 2025</td>
+<td>Jennifer Ross</td>
+<td>Canada</td>
+<td>JENNIFER ROSS\n10535 BARTLETT HILLS\nMCKNIGHTC...</td>
+<td>Temporibus eaque quis dignissimos reiciendis d...</td>
+<td>April 27, 2004</td>
+<td>True</td>
+<td>True</td>
 </tr>
 </tbody>
 </table>
-<p>The config file uses YAML format for easy editing. Here you specify the data / template filepaths, as well as which groups require which templates. For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span><span class="kw">:</span><span class="at"> </span><span class="st">'C:\path\to\data.parquet'</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">id_col</span><span class="kw">:</span><span class="at"> </span><span class="st">'id'</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">group_col</span><span class="kw">:</span><span class="at"> </span><span class="st">'_group'</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">multi_line_cols</span><span class="kw">:</span><span class="co">  # optional</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'str_mailing_details'</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tables</span><span class="kw">:</span><span class="co">  # optional</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'tbl1'</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'tbl2'</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">group1</span><span class="kw">:</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template.docx'</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template2.docx'</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">group2</span><span class="kw">:</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template.docx'</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">'C:\path\to\template3.docx'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is particularly useful when you have many groups, each requiring different combinations of templates.</p>
+
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="merge" class="level1">
-<h1>Merge</h1>
-<hr>
-<section id="groupmergedata" class="level3">
-<h3 class="anchored" data-anchor-id="groupmergedata">GroupMergeData</h3>
-<blockquote class="blockquote">
-<pre><code> GroupMergeData (cfg:dict, group_data:dict[str,list],
-                 df:pandas.core.frame.DataFrame, tables:list|None,
-                 _test:int)</code></pre>
-</blockquote>
-<hr>
-</section>
-<section id="convertandcombinepdfs" class="level3">
-<h3 class="anchored" data-anchor-id="convertandcombinepdfs">convertAndCombinePdfs</h3>
-<blockquote class="blockquote">
-<pre><code> convertAndCombinePdfs (parent_dir:str, file_name:str)</code></pre>
-</blockquote>
-<p><em>Convert entire directory of docx to individual pdfs then combine into a single pdf.</em></p>
-<table class="caption-top table">
+<section id="payment-details-table" class="level2">
+<h2 class="anchored" data-anchor-id="payment-details-table">Payment Details table</h2>
+<div id="cell-8" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tbl_dat <span class="op">=</span> pd.read_parquet(<span class="st">"../tests/example/in/table_data.parquet"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>tbl_dat.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Details</strong></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">amt</th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">details</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>parent_dir</td>
-<td>str</td>
-<td>str</td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>1065999</td>
+<td>$26,308.80</td>
+<td>Cash</td>
+<td>Directly deposited to your bank account less a...</td>
 </tr>
 <tr class="even">
-<td>file_name</td>
-<td>str</td>
-<td>str - name of resulting combined pdf</td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>1065999</td>
+<td>$82,571.66</td>
+<td>Locked-in Transfer</td>
+<td>BANK OF MONTREAL\n33 MAIN ST.\nPORT AUX BASQUE...</td>
 </tr>
 <tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>1257262</td>
+<td>$3,403.46</td>
+<td>Cash</td>
+<td>Directly deposited to your bank account less a...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1307164</td>
+<td>$10,200.83</td>
+<td>Cash</td>
+<td>Directly deposited to your bank account less a...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1307164</td>
+<td>$62,598.72</td>
+<td>Locked-in Transfer</td>
+<td>CANADA LIFE\n255 DUFFERIN AVE\nT424\nLONDON, O...</td>
 </tr>
 </tbody>
 </table>
-<hr>
+
+</div>
+</div>
+</div>
+<p>Pivot above to join with main data such that each ID has only one row.</p>
+<div id="cell-10" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pmt_tbl <span class="op">=</span> pivotTblData(tbl_dat, <span class="st">"tbl1"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tm <span class="op">=</span> pd.merge(df, pmt_tbl, on<span class="op">=</span><span class="st">"id"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(tm) <span class="op">==</span> <span class="bu">len</span>(df)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(tm) <span class="op">==</span> <span class="bu">len</span>(pmt_tbl)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> tm[<span class="st">"id"</span>].nunique() <span class="op">==</span> <span class="bu">len</span>(tm)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> _addGroupCol(tm.copy())</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df.to_parquet(<span class="st">"../tests/example/dat.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="merge-1" class="level3">
-<h3 class="anchored" data-anchor-id="merge-1">merge</h3>
-<blockquote class="blockquote">
-<pre><code> merge (cfg_path:str, _test:int=0)</code></pre>
-</blockquote>
-<p><em>Run merge</em></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>cfg_path</td>
-<td>str</td>
-<td></td>
-<td>All config options should be entered in the config yaml file.</td>
-</tr>
-<tr class="even">
-<td>_test</td>
-<td>int</td>
-<td>0</td>
-<td>int - if &gt; 0, processes first <code>_test</code> rows only</td>
-</tr>
-<tr class="odd">
-<td><strong>Returns</strong></td>
-<td><strong>None</strong></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="merge" class="level2">
+<h2 class="anchored" data-anchor-id="merge">Merge</h2>
+<div id="cell-12" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mmm.merge(<span class="st">"../tests/example/cfg.yml"</span>, _test<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 3/3 [00:01&lt;00:00,  1.66it/s]
+100%|██████████| 3/3 [00:01&lt;00:00,  2.43it/s]</code></pre>
+</div>
+</div>
+</section>
+<section id="result" class="level2">
+<h2 class="anchored" data-anchor-id="result">Result</h2>
+<p>As seen below, different members can have different types/numbers of payments.</p>
+<p>The tables produced using this module are dynamic – Only rows with data are populated.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/tables_example.png" class="img-fluid figure-img"></p>
+<figcaption>Example tables</figcaption>
+</figure>
+</div>
+<p>On the template side, it looks something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/tables_tpl_example.png" class="img-fluid figure-img"></p>
+<figcaption>Example tables - template</figcaption>
+</figure>
+</div>
 
 
 </section>
