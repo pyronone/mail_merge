@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Module for working with dynamic tables (varying number of rows)">
+<meta name="description" content="Experimental feature since most merges don’t require dynamic images">
 
-<title>Tables – mail_merge</title>
+<title>Images – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,11 +107,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Tables – mail_merge">
-<meta property="og:description" content="Module for working with dynamic tables (varying number of rows)">
+<meta property="og:title" content="Images – mail_merge">
+<meta property="og:description" content="Experimental feature since most merges don’t require dynamic images">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="Tables – mail_merge">
-<meta name="twitter:description" content="Module for working with dynamic tables (varying number of rows)">
+<meta name="twitter:title" content="Images – mail_merge">
+<meta name="twitter:description" content="Experimental feature since most merges don’t require dynamic images">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tables.html">Tables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./images.html">Images</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -174,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tables.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
@@ -186,7 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./images.html" class="sidebar-item-text sidebar-link">
+  <a href="./images.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Images</span></a>
   </div>
 </li>
@@ -200,13 +200,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pivottbldata" id="toc-pivottbldata" class="nav-link active" data-scroll-target="#pivottbldata">pivotTblData</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a>
-  <ul class="collapse">
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
-  <li><a href="#payments-table" id="toc-payments-table" class="nav-link" data-scroll-target="#payments-table">Payments table</a></li>
-  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
-  </ul></li>
+  <li><a href="#image" id="toc-image" class="nav-link active" data-scroll-target="#image">Image</a></li>
+  <li><a href="#example-usage" id="toc-example-usage" class="nav-link" data-scroll-target="#example-usage">Example usage</a></li>
   </ul>
 </nav>
     </div>
@@ -215,12 +210,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tables</h1>
+<h1 class="title">Images</h1>
 </div>
 
 <div>
   <div class="description">
-    Module for working with dynamic tables (varying number of rows)
+    Experimental feature since most merges don’t require dynamic images
   </div>
 </div>
 
@@ -239,58 +234,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- ... -->
 <hr>
-<section id="pivottbldata" class="level3">
-<h3 class="anchored" data-anchor-id="pivottbldata">pivotTblData</h3>
+<section id="image" class="level3">
+<h3 class="anchored" data-anchor-id="image">Image</h3>
 <blockquote class="blockquote">
-<pre><code> pivotTblData (df:pandas.core.frame.DataFrame, tbl_name:str,
-               key_col:str='id')</code></pre>
+<pre><code> Image (path:str, width_mm:int|None=None, height_mm:int|None=None)</code></pre>
 </blockquote>
-<p><em>Pivot to merge w/ main data</em></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th><strong>Type</strong></th>
-<th><strong>Default</strong></th>
-<th><strong>Details</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>df</td>
-<td>DataFrame</td>
-<td></td>
-<td>pd.DataFrame</td>
-</tr>
-<tr class="even">
-<td>tbl_name</td>
-<td>str</td>
-<td></td>
-<td>str</td>
-</tr>
-<tr class="odd">
-<td>key_col</td>
-<td>str</td>
-<td>id</td>
-<td>str</td>
-</tr>
-<tr class="even">
-<td><strong>Returns</strong></td>
-<td><strong>DataFrame</strong></td>
-<td></td>
-<td><strong>pd.DataFrame</strong></td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Image:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    path: <span class="bu">str</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    width_mm: <span class="bu">int</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    height_mm: <span class="bu">int</span> <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="example" class="level1">
-<h1>Example</h1>
-<section id="load-data" class="level2">
-<h2 class="anchored" data-anchor-id="load-data">Load data</h2>
-<div id="cell-5" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> _loadAndCleanSampleDat()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<section id="example-usage" class="level2">
+<h2 class="anchored" data-anchor-id="example-usage">Example usage</h2>
+<div id="cell-5" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> addDynamicLogoColumn(df: pd.DataFrame) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""-&gt; pd.DataFrame</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    df : pd.DataFrame</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">        pd.DataFrame</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    pd.DataFrame</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">        pd.DataFrame</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    logo1 <span class="op">=</span> Image(<span class="st">"../tests/images/logo1.png"</span>, width_mm<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    logo2 <span class="op">=</span> Image(<span class="st">"../tests/images/logo2.png"</span>, width_mm<span class="op">=</span><span class="dv">40</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"img_logo"</span>] <span class="op">=</span> logo1  <span class="co"># will need to specify this is an image col in cfg file</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> df[<span class="st">"group"</span>] <span class="op">==</span> <span class="st">"2"</span>  <span class="co"># type: ignore # noqa</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    df.loc[m, <span class="st">"img_logo"</span>] <span class="op">=</span> logo2  <span class="co"># type: ignore # noqa</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"img_logo"</span>] <span class="op">=</span> df[<span class="st">"img_logo"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: asdict(x))</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>[<span class="st">"id"</span>, <span class="st">"group"</span>])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">0</span>] <span class="op">=</span> [<span class="st">"1"</span>, <span class="st">"1"</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">1</span>] <span class="op">=</span> [<span class="st">"2"</span>, <span class="st">"2"</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.pipe(addDynamicLogoColumn).copy()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df.to_parquet(<span class="st">"../tests/images/dat.parquet"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"img_logo"</span>] <span class="op">=</span> df[<span class="st">"img_logo"</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: hidePaths(x))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -299,96 +290,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">fname</th>
-<th data-quarto-table-cell-role="th">lname</th>
-<th data-quarto-table-cell-role="th">dob</th>
-<th data-quarto-table-cell-role="th">email</th>
-<th data-quarto-table-cell-role="th">phone</th>
-<th data-quarto-table-cell-role="th">street</th>
-<th data-quarto-table-cell-role="th">city</th>
-<th data-quarto-table-cell-role="th">prov</th>
-<th data-quarto-table-cell-role="th">pc</th>
-<th data-quarto-table-cell-role="th">comment</th>
-<th data-quarto-table-cell-role="th">amt_total</th>
-<th data-quarto-table-cell-role="th">dt_send</th>
-<th data-quarto-table-cell-role="th">str_full_name</th>
-<th data-quarto-table-cell-role="th">country</th>
-<th data-quarto-table-cell-role="th">str_mailing_details</th>
-<th data-quarto-table-cell-role="th">str_comment</th>
-<th data-quarto-table-cell-role="th">dt_dob</th>
-<th data-quarto-table-cell-role="th">bool_some_bool</th>
-<th data-quarto-table-cell-role="th">bool_dob_verified</th>
+<th data-quarto-table-cell-role="th">group</th>
+<th data-quarto-table-cell-role="th">img_logo</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>5790492</td>
-<td>Henry</td>
-<td>Alvarado</td>
-<td>1940-01-10</td>
-<td>mbrown@example.org</td>
-<td>(465) 529-2322</td>
-<td>91971 Williams Shoals</td>
-<td>Port Richard</td>
-<td>SK</td>
-<td>M6J 1P4</td>
-<td>Tenetur hic eaque praesentium.</td>
-<td>$2,449.83</td>
-<td>August 31, 2026</td>
-<td>Henry Alvarado</td>
-<td>Canada</td>
-<td>HENRY ALVARADO\n91971 WILLIAMS SHOALS\nPORT RI...</td>
-<td>Tenetur hic eaque praesentium.\n\n</td>
-<td>January 10, 1940</td>
-<td>False</td>
-<td>False</td>
+<td>1</td>
+<td>1</td>
+<td>{'path': '...\\images\\logo1.png', 'width_mm':...</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>5266792</td>
-<td>Robert</td>
-<td>Henry</td>
-<td>1996-02-04</td>
-<td>gonzalesmegan@example.com</td>
-<td>812-671-2491</td>
-<td>54198 Lambert Isle</td>
-<td>Stevensstad</td>
-<td>NU</td>
-<td>M2M 3L2</td>
-<td>Voluptatibus fugit nam repellendus nemo repell...</td>
-<td>$54,129.69</td>
-<td>August 31, 2026</td>
-<td>Robert Henry</td>
-<td>Canada</td>
-<td>ROBERT HENRY\n54198 LAMBERT ISLE\nSTEVENSSTAD,...</td>
-<td>Voluptatibus fugit nam repellendus nemo repell...</td>
-<td>February 4, 1996</td>
-<td>False</td>
-<td>True</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>3735642</td>
-<td>Jennifer</td>
-<td>Ross</td>
-<td>2004-04-27</td>
-<td>hernandezjill@example.org</td>
-<td>1-156-761-3895</td>
-<td>10535 Bartlett Hills</td>
-<td>Mcknightchester</td>
-<td>MB</td>
-<td>T8K 6J5</td>
-<td>Temporibus eaque quis dignissimos reiciendis d...</td>
-<td>$279,879.10</td>
-<td>August 31, 2026</td>
-<td>Jennifer Ross</td>
-<td>Canada</td>
-<td>JENNIFER ROSS\n10535 BARTLETT HILLS\nMCKNIGHTC...</td>
-<td>Temporibus eaque quis dignissimos reiciendis d...</td>
-<td>April 27, 2004</td>
-<td>True</td>
-<td>True</td>
+<td>2</td>
+<td>2</td>
+<td>{'path': '...\\images\\logo2.png', 'width_mm':...</td>
 </tr>
 </tbody>
 </table>
@@ -396,188 +313,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="payments-table" class="level2">
-<h2 class="anchored" data-anchor-id="payments-table">Payments table</h2>
-<ul>
-<li>Where each row is a separate payment type</li>
-<li>IDs may be duplicated</li>
-</ul>
-<div id="cell-7" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pmts <span class="op">=</span> pd.read_parquet(<span class="st">"../tests/tables/payments.parquet"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pmts.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">amt</th>
-<th data-quarto-table-cell-role="th">type</th>
-<th data-quarto-table-cell-role="th">details</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1065999</td>
-<td>$26,308.80</td>
-<td>Cash</td>
-<td>Directly deposited to your bank account less a...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1065999</td>
-<td>$82,571.66</td>
-<td>Locked-in Transfer</td>
-<td>BANK OF MONTREAL\n33 MAIN ST.\nPORT AUX BASQUE...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1257262</td>
-<td>$3,403.46</td>
-<td>Cash</td>
-<td>Directly deposited to your bank account less a...</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2</td>
-<td>1307164</td>
-<td>$10,200.83</td>
-<td>Cash</td>
-<td>Directly deposited to your bank account less a...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>1307164</td>
-<td>$62,598.72</td>
-<td>Locked-in Transfer</td>
-<td>CANADA LIFE\n255 DUFFERIN AVE\nT424\nLONDON, O...</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<ul>
-<li>Pivot above to join with main data</li>
-<li>One row per ID</li>
-</ul>
-<div id="cell-9" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pmts <span class="op">=</span> pivotTblData(pmts, <span class="st">"tbl1"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pmts.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_1</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_2</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_3</th>
-<th data-quarto-table-cell-role="th">__tbl1__amt_4</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_1</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_2</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_3</th>
-<th data-quarto-table-cell-role="th">__tbl1__type_4</th>
-<th data-quarto-table-cell-role="th">__tbl1__details_1</th>
-<th data-quarto-table-cell-role="th">__tbl1__details_2</th>
-<th data-quarto-table-cell-role="th">__tbl1__details_3</th>
-<th data-quarto-table-cell-role="th">__tbl1__details_4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>1065999</td>
-<td>$26,308.80</td>
-<td>$82,571.66</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Cash</td>
-<td>Locked-in Transfer</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Directly deposited to your bank account less a...</td>
-<td>BANK OF MONTREAL\n33 MAIN ST.\nPORT AUX BASQUE...</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1257262</td>
-<td>$3,403.46</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Cash</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Directly deposited to your bank account less a...</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>1307164</td>
-<td>$10,200.83</td>
-<td>$62,598.72</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Cash</td>
-<td>Locked-in Transfer</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>Directly deposited to your bank account less a...</td>
-<td>CANADA LIFE\n255 DUFFERIN AVE\nT424\nLONDON, O...</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-10" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tm <span class="op">=</span> pd.merge(df, pmts, on<span class="op">=</span><span class="st">"id"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(tm) <span class="op">==</span> <span class="bu">len</span>(df)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> <span class="bu">len</span>(tm) <span class="op">==</span> <span class="bu">len</span>(pmts)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> tm[<span class="st">"id"</span>].nunique() <span class="op">==</span> <span class="bu">len</span>(tm)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> tm[<span class="st">"__tbl1__amt_1"</span>].isna().<span class="bu">sum</span>() <span class="op">==</span> <span class="dv">0</span>  <span class="co"># at least one payment per member</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>_exportData(tm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="result" class="level2">
-<h2 class="anchored" data-anchor-id="result">Result</h2>
-<p>As seen below, different members can have different types/numbers of payments.</p>
-<p>The tables produced using this module are dynamic – Only rows with data are populated.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mm.merge(<span class="st">"../tests/images/cfg.yml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./images/tables_example.png" class="img-fluid figure-img"></p>
-<figcaption>Example tables</figcaption>
-</figure>
-</div>
-<p>The template looks something like this:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/tables_tpl_example.png" class="img-fluid figure-img"></p>
-<figcaption>Example tables - template</figcaption>
+<p><img src="./images/tst_dynamic_image.png" class="img-fluid figure-img"></p>
+<figcaption>Example result</figcaption>
 </figure>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

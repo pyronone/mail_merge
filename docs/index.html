@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Seamless Mass Mailings, Simplified – mail_merge</title>
+<title>Mail Merges, Modernized – mail_merge</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,10 +103,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Seamless Mass Mailings, Simplified – mail_merge">
+<meta property="og:title" content="Mail Merges, Modernized – mail_merge">
 <meta property="og:description" content="…">
 <meta property="og:site_name" content="mail_merge">
-<meta name="twitter:title" content="Seamless Mass Mailings, Simplified – mail_merge">
+<meta name="twitter:title" content="Mail Merges, Modernized – mail_merge">
 <meta name="twitter:description" content="…">
 <meta name="twitter:card" content="summary">
 </head>
@@ -98,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Seamless Mass Mailings, Simplified</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Mail Merges, Modernized</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -113,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Seamless Mass Mailings, Simplified</span></a>
+ <span class="menu-text">Mail Merges, Modernized</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -140,6 +174,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Tables</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./helpers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Helpers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./images.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Images</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -150,7 +196,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#features-benefits" id="toc-features-benefits" class="nav-link active" data-scroll-target="#features-benefits">Features &amp; Benefits</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#why-use-this-instead-of-standard-mail-merge" id="toc-why-use-this-instead-of-standard-mail-merge" class="nav-link" data-scroll-target="#why-use-this-instead-of-standard-mail-merge">Why Use This Instead of Standard Mail Merge?</a>
+  <ul class="collapse">
+  <li><a href="#key-advantages" id="toc-key-advantages" class="nav-link" data-scroll-target="#key-advantages">Key Advantages</a></li>
+  </ul></li>
+  <li><a href="#comparison-standard-mail-merge-vs.-this-package" id="toc-comparison-standard-mail-merge-vs.-this-package" class="nav-link" data-scroll-target="#comparison-standard-mail-merge-vs.-this-package">Comparison: Standard Mail Merge vs.&nbsp;This Package</a></li>
+  <li><a href="#template-workflow" id="toc-template-workflow" class="nav-link" data-scroll-target="#template-workflow">Template Workflow</a>
+  <ul class="collapse">
+  <li><a href="#step-1-adding-tags-to-your-docx-templates" id="toc-step-1-adding-tags-to-your-docx-templates" class="nav-link" data-scroll-target="#step-1-adding-tags-to-your-docx-templates">Step 1: Adding Tags to Your DOCX Templates</a></li>
+  <li><a href="#step-2-field-extraction" id="toc-step-2-field-extraction" class="nav-link" data-scroll-target="#step-2-field-extraction">Step 2: Field Extraction</a></li>
+  <li><a href="#step-3-running-the-merge" id="toc-step-3-running-the-merge" class="nav-link" data-scroll-target="#step-3-running-the-merge">Step 3: Running the Merge</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -159,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Seamless Mass Mailings, Simplified</h1>
+<h1 class="title">Mail Merges, Modernized</h1>
 </div>
 
 
@@ -177,23 +234,183 @@ ul.task-list li input[type="checkbox"] {
 
 
 <!-- ... -->
-<p>At TELUS Health / LifeWorks, I have successfully executed dozens of mail merges, many of which had thousands of recipients, a wide variety of templates, tight deadlines, and constant changes to both templates and data. With a natural inclination for process efficiency, I’ve created a Python package to streamline the process.</p>
-<hr>
-<section id="features-benefits" class="level3">
-<h3 class="anchored" data-anchor-id="features-benefits">Features &amp; Benefits</h3>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This package provides a modern alternative to standard Word mail merge, using Jinja2-like templating syntax to enable advanced features and streamline document generation workflows.</p>
+</section>
+<section id="why-use-this-instead-of-standard-mail-merge" class="level2">
+<h2 class="anchored" data-anchor-id="why-use-this-instead-of-standard-mail-merge">Why Use This Instead of Standard Mail Merge?</h2>
+<section id="key-advantages" class="level3">
+<h3 class="anchored" data-anchor-id="key-advantages">Key Advantages</h3>
 <ul>
-<li><strong>Reliable Mail Merges</strong>: Eliminate common errors and inconsistencies that come with manual mail merges.</li>
-<li><strong>Effortless Re-runs</strong>: Quickly re-run merges with updated data or templates with minimal manual steps.</li>
-<li><strong>Dynamic Template Management</strong>: Easily handle frequent template updates across multiple campaigns.</li>
-<li><strong>Group-Specific Flexibility</strong>: Automatically generate the right combination of templates for different recipient groups.</li>
-<li><strong>Time-Saving Automation</strong>: Reduce repetitive manual steps and free up time for more important work.</li>
-<li><strong>Scalable for Complexity</strong>: Designed to handle high volumes and complex mailing structures with ease.</li>
-<li><strong>Built-in Formatting Tools</strong>: Convert numbers into properly formatted currencies, and standardize dates in both English and French.</li>
-<li><strong>Address Processing</strong>: Clean and structure address fields automatically for mailing accuracy.</li>
-<li><strong>Consistent Output</strong>: Ensure all merged documents use the same professional, localized formatting—no manual tweaks required.</li>
+<li><strong>Powerful templating syntax</strong>: Jinja2-like tags enable conditional logic, loops, and dynamic content</li>
+<li><strong>Rich formatting support</strong>: Maintain text formatting, insert images, and create dynamic tables</li>
+<li><strong>Automatic field detection</strong>: Quickly extract all required fields from templates without manual inspection</li>
+<li><strong>Scalability</strong>: Efficiently manage large numbers of templates across multiple groups</li>
+<li><strong>Type safety</strong>: Better validation and error handling compared to traditional merge fields</li>
 </ul>
+</section>
+</section>
+<section id="comparison-standard-mail-merge-vs.-this-package" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-standard-mail-merge-vs.-this-package">Comparison: Standard Mail Merge vs.&nbsp;This Package</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 45%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Standard Mail Merge</th>
+<th>This Package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Syntax</td>
+<td><code>« MERGEFIELD »</code></td>
+<td><code>{ field_name }</code></td>
+</tr>
+<tr class="even">
+<td>Conditional logic</td>
+<td>Limited</td>
+<td>Full support</td>
+</tr>
+<tr class="odd">
+<td>Dynamic tables</td>
+<td>Manual setup</td>
+<td>Automatic with loops</td>
+</tr>
+<tr class="even">
+<td>Image insertion</td>
+<td>Complex</td>
+<td>Simple tag syntax</td>
+</tr>
+<tr class="odd">
+<td>Field extraction</td>
+<td>Manual inspection</td>
+<td>Automatic detection</td>
+</tr>
+<tr class="even">
+<td>Rich text</td>
+<td>Basic</td>
+<td>Full formatting support</td>
+</tr>
+<tr class="odd">
+<td>Scalability</td>
+<td>Decreases with complexity</td>
+<td>Handles large template sets easily</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="template-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="template-workflow">Template Workflow</h2>
+<section id="step-1-adding-tags-to-your-docx-templates" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-adding-tags-to-your-docx-templates">Step 1: Adding Tags to Your DOCX Templates</h3>
+<p>Unlike standard Word merge fields (which use <code>« MERGEFIELD »</code> syntax), this package uses Jinja2-style tags that are more readable and powerful.</p>
+<section id="basic-tag-syntax" class="level4">
+<h4 class="anchored" data-anchor-id="basic-tag-syntax">Basic Tag Syntax</h4>
+<pre><code>{{ field_name }}</code></pre>
+<p>Simply type these tags directly into your Word document where you want dynamic content to appear.</p>
+</section>
+<section id="example-template" class="level4">
+<h4 class="anchored" data-anchor-id="example-template">Example Template</h4>
+<pre><code>Dear {{ recipient_name }},
+
+Thank you for your purchase of {{ product_name }} on {{ purchase_date }}.
+
+Your order total: {{ order_total }}
+
+Best regards,
+{{ sender_name }}</code></pre>
+</section>
+<section id="conditional-content" class="level4">
+<h4 class="anchored" data-anchor-id="conditional-content">Conditional Content</h4>
+<p>Use if-statements to show or hide content based on your data:</p>
+<pre><code>{% if premium_customer %}
+As a valued premium customer, you receive free shipping on all orders!
+{% endif %}</code></pre>
+</section>
+<section id="dynamic-tables" class="level4">
+<h4 class="anchored" data-anchor-id="dynamic-tables">Dynamic Tables</h4>
+<p>Generate table rows dynamically from list data:</p>
+<pre><code>| Item | Quantity | Price |
+|------|----------|-------|
+{%tr for item in items %}
+| {{ item.name }} | {{ item.quantity }} | {{ item.price }} |
+{%tr endfor %}</code></pre>
+</section>
+<section id="rich-text-variables" class="level4">
+<h4 class="anchored" data-anchor-id="rich-text-variables">Rich Text Variables</h4>
+<p>Variables can contain inline formatting — bold, italic, underline, color, font size — so styled content merges cleanly into your document without splitting it across multiple fields.</p>
+<pre><code>{{r richtext}}</code></pre>
+</section>
+<section id="dynamic-images" class="level4">
+<h4 class="anchored" data-anchor-id="dynamic-images">Dynamic Images</h4>
+<p>Swap in different images at merge time based on your data — useful for logos, signatures, charts, or any image that varies per recipient.</p>
+<pre><code>{{ logo }}</code></pre>
+</section>
+</section>
+<section id="step-2-field-extraction" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-field-extraction">Step 2: Field Extraction</h3>
+<p>Automatically scan a template, or folder of templates (searches recursively in sub-folders), and list every field it requires — no need to track them manually.</p>
+<p>This is especially handy when working with a large number of templates, each with their own unique set of fields.</p>
+<div id="cell-14" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> getFieldTags(extractFromDocx(tpl_dir))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sorted</span>(tags)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>['{% endif %}',
+ '{% if amt_cash %}',
+ '{% if pct_rome %}',
+ '{{ amt_cash }}',
+ '{{ amt_li_ls }}',
+ '{{ amt_partial_ls }}',
+ '{{ dt_doe }}',
+ '{{ dt_doh }}',
+ '{{ dt_dot }}',
+ '{{ dt_mdob }}',
+ '{{ dt_nrd }}',
+ '{{ dt_partial_ls }}',
+ '{{ dt_send }}',
+ '{{ img_logo }}',
+ '{{ pct_rome }}',
+ '{{ str_footer }}',
+ '{{ str_greet }}',
+ '{{ str_id }}',
+ '{{ str_ls_msg }}',
+ '{{ str_mailing_details }}',
+ '{{ str_mbr_name }}',
+ '{{ str_sex }}']</code></pre>
+</div>
+</div>
+</section>
+<section id="step-3-running-the-merge" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-running-the-merge">Step 3: Running the Merge</h3>
+<p>Once your templates are tagged and your data is prepared, running the merge is a single command:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>merge(<span class="st">"./path/to/config.yml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Pass <code>_test=n</code> to run only the first <code>n</code> records — useful for quickly checking formatting before a full run.</li>
+<li>Pass a list into <code>_test_ids</code> to check specific IDs (special cases, etc.)</li>
+</ul>
+<section id="config-file" class="level4">
+<h4 class="anchored" data-anchor-id="config-file">Config file</h4>
+<p>The merge function takes a YAML config file as its primary parameter. This keeps your merge setup readable and easy to edit without touching code, serves as a clear record of where your data lives, how templates map to recipient groups, and can be version-controlled.</p>
+<p>Here is a simple example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span><span class="kw">:</span><span class="at"> C:/path/to/data.parquet</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">id_col</span><span class="kw">:</span><span class="at"> id</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">group_col</span><span class="kw">:</span><span class="at"> _group</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">example</span><span class="kw">:</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> C:/path/to/template.docx</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">image_cols</span><span class="kw">:</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> img_logo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There is also a helper function (<code>helpers.initCfg</code>) to help generate this config file automatically.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
