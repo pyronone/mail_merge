@@ -237,6 +237,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This package provides a modern alternative to standard Word mail merge, using Jinja2-like templating syntax to enable advanced features and streamline document generation workflows.</p>
+<p>This started with the reality of nationwide regulatory work: every province has its own rules, which meant its own templates — and within each, a matrix of entitlement types (locked-in, non-locked-in, cash only, partial payments, immediate vs.&nbsp;deferred pensions) that multiplied the template count fast.</p>
+<p>Imagine this. Dozens of templates across provinces and entitlement types. Templates get tweaked constantly, and actuarial numbers aren’t always right the first time, which means reopening each document, clicking through Word’s merge wizard, exporting to PDF, and renaming every file by hand, over and over, under a tight deadline.</p>
+<p>That’s hours of tedious, repetitive work — and it only gets worse as templates multiply.</p>
+<p>So I built a tool that turns all of that into a single command. Update a template or fix a number, and the entire batch re-merges automatically — no reopening files, no manual exporting, no renaming. What used to take hours now takes minutes, and it scales just as easily to five templates as it does to fifty.</p>
 </section>
 <section id="why-use-this-instead-of-standard-mail-merge" class="level2">
 <h2 class="anchored" data-anchor-id="why-use-this-instead-of-standard-mail-merge">Why Use This Instead of Standard Mail Merge?</h2>
